@@ -6,9 +6,10 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import type {Node} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -16,7 +17,8 @@ import {
   Text,
   useColorScheme,
   View,
-} from 'react-native';
+  TouchableOpacity, Pressable,
+} from "react-native";
 
 import {
   Colors,
@@ -25,93 +27,93 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+const colors = ['red', 'orange', 'blue', 'yellow', 'black'];
 
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [colorIndex, setColorIndex] = useState(0);
+  const [color, setColor] = useState(0);
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+    <SafeAreaView style={styles.mainContainer}>
+      <Text style={styles.red}>{'Counter: ' + count.toString()}</Text>
+      <View style={styles.countButton}>
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            setCount(count + 1);
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+          <Text style={styles.text}>{'ADD 1'}</Text>
+        </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            setCount(count - 1);
+          }}>
+          <Text style={styles.text}>{'SUBSTRACT 1'}</Text>
+        </Pressable>
+      </View>
+      <TouchableOpacity
+        style={[styles.bar, {backgroundColor: colors[colorIndex]}]}
+        onLongPress={() => {
+          setColorIndex(randomInteger(0, colors.length - 1));
+        }}
+      />
+      <View style={styles.changeColorButton}>
+        <Button
+          title={'change color'}
+          onPress={() => {
+            setColorIndex(randomInteger(0, colors.length - 1));
+          }}
+        />
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  mainContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    width: '100%',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  countButton: {
+    marginTop: 10,
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  bar: {
+    marginTop: 10,
+    width: 100,
+    height: 100,
+    backgroundColor: 'red',
   },
-  highlight: {
-    fontWeight: '700',
+  changeColorButton: {
+    marginTop: 10,
+    borderRadius: 10,
+  },
+  red: {
+    color: 'red',
+  },
+  button: {
+    marginTop: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: 'black',
+  },
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
   },
 });
+
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 export default App;
