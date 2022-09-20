@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment, useEffect, useRef} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -7,51 +8,105 @@ import {
   Text,
   useColorScheme,
   View,
-  Touch,
-  Button,
+  Animated,
 } from 'react-native';
 
-const colors = ['red', 'orange', 'blue'];
 const App = () => {
-  const [count, setCount] = useState(0);
-  const [colorIndex, setColorIndex] = useState(0);
+  const value = useRef(new Animated.Value(0)).current
+  const carUp = () =>{
+    Animated.timing(value, {toValue: 0, useNativeDriver: true, duration: 300}).start()
+  }
+  const carDown = () =>{
+    Animated.timing(value, {toValue: 100, useNativeDriver: true, duration: 300}).start()
+  }
   return (
-    <SafeAreaView style={styles.mainContainer}>
-      <Text>{`Counter: ${count}`}</Text>
-      <View>
-        <Button
-          title={`add`}
-          onPress={() => {
-            setCount(count + 1);
-          }}
-        />
+    <SafeAreaView style={styles.background}>
+      <View style={styles.grass}>
+        <View style={styles.road}>
+          
+          <Animated.View style={styles.stripes}>
+            <View style={styles.stripe} />
+            <View style={styles.stripe} />
+            <View style={styles.stripe} />
+            <View style={styles.stripe} />
+            <View style={styles.stripe} />
+            <View style={styles.stripe} />
+            <View style={styles.stripe} />
+            <View style={styles.stripe} />
+            <View style={styles.stripe} />
+            <View style={styles.stripe} />
+          </Animated.View>
+
+          <Animated.Image
+            resizeMode="center"
+            source={require('./resources/car.png')}
+            style={{...styles.carImage, ...styles.car, transform: [{translateY: value.interpolate({inputRange: [0,100], outputRange:[0,100]} )}]}}
+          />
+        </View>
       </View>
-      <View style={[styles.bar, {backgroundColor: colors[colorIndex]}]} />
-      <Button
-        title={'changeColor'}
-        onPress={() => {
-          setColorIndex((colorIndex + 1) % (colors.length - 1));
-        }}
-      />
+
+      <View style={styles.buttons}>
+        <Button title="up" style={styles.button} onPress={carUp}/>
+        <Button title="down" style={styles.button} onPress={carDown}/>
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  bar: {
-    marginTop: 10,
-    width: '100',
-    height: '100',
-    borderRadius: '10',
-  },
-  mainContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
+  background: {
+    backgroundColor: '#87CEEB',
+    flex: 1,
+    justifyContent: 'flex-end',
     height: '100%',
   },
 
-  countButton: {
-    color: 'red',
+  grass: {
+    backgroundColor: '#4DED33',
+    bottom: 0,
+    position: 'absolute',
+    height: '70%',
+    width: '100%',
+  },
+
+  road: {
+    backgroundColor: '#666560',
+    height: 160,
+    justifyContent: 'center',
+    marginTop: '10%',
+    width: '100%',
+  },
+
+  stripe: {
+    backgroundColor: '#FFFFFF',
+    width: '5%',
+    height: 10,
+  },
+
+  stripes: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+
+  carImage: {
+    height: 80,
+    position: 'absolute',
+    left: -30,
+  },
+
+  car: {
+    bottom: 100
+    // top: -20,
+  },
+
+  buttons: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+
+  button: {
+    width: 100,
+    height: 100,
   },
 });
 
