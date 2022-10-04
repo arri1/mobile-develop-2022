@@ -7,7 +7,6 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-//import {} from 'react-native-gesture-handler';
 
 const colors = ['red', 'orange', 'blue'];
 const colors1 = [
