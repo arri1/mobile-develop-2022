@@ -2,10 +2,10 @@ import {
     StyleSheet,
     Text,
     View,
-    Image, 
+    Image,
 } from 'react-native';
 
-function truncateTitle (str) {
+function truncateTitle(str) {
     if (str.length >= 50) {
         return str.substring(0, 50) + '...';
     }
@@ -15,16 +15,16 @@ function truncateTitle (str) {
 
 export const Post = ({ title, imageUrl, createdAt }) => {
     return (
-        <View style = {[styles.post]}>
-            <Image 
-                style = {[styles.image]}
-                source={{ 
+        <View style={[styles.post]}>
+            <Image
+                style={[styles.image]}
+                source={{
                     uri: imageUrl
-            }}
+                }}
             />
-            <View style = {[styles.postDetails]}>
-                <Text style = {[styles.postTitle]}>{truncateTitle(title)}</Text>
-                <Text style = {[styles.postDate]}>{new Date(createdAt).toLocaleDateString()}</Text>
+            <View style={[styles.postDetails]}>
+                <Text style={[styles.postTitle]}>{truncateTitle(title)}</Text>
+                <Text style={[styles.postDate]}>{new Date(createdAt).toLocaleDateString()}</Text>
             </View>
         </View>
     )
