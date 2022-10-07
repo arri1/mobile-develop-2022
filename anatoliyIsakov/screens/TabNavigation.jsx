@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { LabOne } from "../components/LabOne";
+import { LabOne } from "./LabOne";
 import { LabTwo } from "./LabTwo";
 
 const Tab = createBottomTabNavigator();
