@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+/* eslint-disable prettier/prettier */
+import React, {useState, Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,9 +8,12 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { WebView } from 'react-native-webview';
 
-const colors = ['red', 'orange', 'blue'];
-const colors1 = [
+const colors = [['red', 'orange', 'blue'],
+[
   'yellow',
   'grey',
   'yellow',
@@ -20,8 +24,8 @@ const colors1 = [
   'yellow',
   'yellow',
   'yellow',
-];
-const colors2 = [
+],
+[
   'yellow',
   'yellow',
   'yellow',
@@ -32,8 +36,8 @@ const colors2 = [
   'yellow',
   'yellow',
   'yellow',
-];
-const colors4 = [
+],
+[
   'yellow',
   'yellow',
   'grey',
@@ -44,8 +48,8 @@ const colors4 = [
   'grey',
   'yellow',
   'yellow',
-];
-const colors5 = [
+],
+[
   'grey',
   'yellow',
   'grey',
@@ -56,8 +60,8 @@ const colors5 = [
   'grey',
   'grey',
   'grey',
-];
-const colors6 = [
+],
+[
   'yellow',
   'grey',
   'yellow',
@@ -68,8 +72,8 @@ const colors6 = [
   'yellow',
   'yellow',
   'yellow',
-];
-const colors7 = [
+],
+[
   'yellow',
   'grey',
   'yellow',
@@ -80,8 +84,8 @@ const colors7 = [
   'grey',
   'yellow',
   'yellow',
-];
-const colors8 = [
+],
+[
   'grey',
   'yellow',
   'yellow',
@@ -92,8 +96,8 @@ const colors8 = [
   'grey',
   'yellow',
   'yellow',
-];
-const colors10 = [
+],
+[
   'yellow',
   'grey',
   'yellow',
@@ -104,8 +108,8 @@ const colors10 = [
   'grey',
   'yellow',
   'grey',
-];
-const colors12 = [
+],
+[
   'yellow',
   'grey',
   'grey',
@@ -116,8 +120,8 @@ const colors12 = [
   'yellow',
   'yellow',
   'yellow',
-];
-const colors13 = [
+],
+[
   'yellow',
   'grey',
   'yellow',
@@ -128,8 +132,8 @@ const colors13 = [
   'grey',
   'yellow',
   'yellow',
-];
-const colors14 = [
+],
+[
   'yellow',
   'yellow',
   'yellow',
@@ -140,9 +144,9 @@ const colors14 = [
   'grey',
   'yellow',
   'yellow',
-];
+]];
 
-const App = () => {
+function Lab1() {
   const [count, setCount] = useState(0);
   const [colorIndex, setColorIndex] = useState(0);
   const [digitIndex, setDigitIndex] = useState(0);
@@ -175,61 +179,86 @@ const App = () => {
       <View>
         <View style={styles.row}>
           <View
-            style={[styles.block, {backgroundColor: colors1[digitIndex]}]}
+            style={[styles.block, {backgroundColor: colors[1][digitIndex]}]}
           />
           <View
-            style={[styles.block, {backgroundColor: colors2[digitIndex]}]}
+            style={[styles.block, {backgroundColor: colors[2][digitIndex]}]}
           />
           <View
-            style={[styles.block, {backgroundColor: colors1[digitIndex]}]}
-          />
-        </View>
-        <View style={styles.row}>
-          <View
-            style={[styles.block, {backgroundColor: colors4[digitIndex]}]}
-          />
-          <View
-            style={[styles.block, {backgroundColor: colors5[digitIndex]}]}
-          />
-          <View
-            style={[styles.block, {backgroundColor: colors6[digitIndex]}]}
+            style={[styles.block, {backgroundColor: colors[1][digitIndex]}]}
           />
         </View>
         <View style={styles.row}>
           <View
-            style={[styles.block, {backgroundColor: colors7[digitIndex]}]}
+            style={[styles.block, {backgroundColor: colors[3][digitIndex]}]}
           />
           <View
-            style={[styles.block, {backgroundColor: colors8[digitIndex]}]}
+            style={[styles.block, {backgroundColor: colors[4][digitIndex]}]}
           />
           <View
-            style={[styles.block, {backgroundColor: colors1[digitIndex]}]}
-          />
-        </View>
-        <View style={styles.row}>
-          <View
-            style={[styles.block, {backgroundColor: colors10[digitIndex]}]}
-          />
-          <View
-            style={[styles.block, {backgroundColor: colors5[digitIndex]}]}
-          />
-          <View
-            style={[styles.block, {backgroundColor: colors12[digitIndex]}]}
+            style={[styles.block, {backgroundColor: colors[5][digitIndex]}]}
           />
         </View>
         <View style={styles.row}>
           <View
-            style={[styles.block, {backgroundColor: colors13[digitIndex]}]}
+            style={[styles.block, {backgroundColor: colors[6][digitIndex]}]}
           />
           <View
-            style={[styles.block, {backgroundColor: colors14[digitIndex]}]}
+            style={[styles.block, {backgroundColor: colors[7][digitIndex]}]}
           />
           <View
-            style={[styles.block, {backgroundColor: colors1[digitIndex]}]}
+            style={[styles.block, {backgroundColor: colors[1][digitIndex]}]}
+          />
+        </View>
+        <View style={styles.row}>
+          <View
+            style={[styles.block, {backgroundColor: colors[8][digitIndex]}]}
+          />
+          <View
+            style={[styles.block, {backgroundColor: colors[4][digitIndex]}]}
+          />
+          <View
+            style={[styles.block, {backgroundColor: colors[9][digitIndex]}]}
+          />
+        </View>
+        <View style={styles.row}>
+          <View
+            style={[styles.block, {backgroundColor: colors[10][digitIndex]}]}
+          />
+          <View
+            style={[styles.block, {backgroundColor: colors[11][digitIndex]}]}
+          />
+          <View
+            style={[styles.block, {backgroundColor: colors[1][digitIndex]}]}
           />
         </View>
       </View>
     </SafeAreaView>
+  );
+}
+
+class Lab2 extends Component {
+  render() {
+    return (
+      <SafeAreaView>
+        <WebView
+            source={{ uri: 'https://en.wikipedia.org/wiki/React_Native' }}
+          />
+      </SafeAreaView>
+    );
+  }
+}
+
+const Tab = createBottomTabNavigator();
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Lab1" component={Lab1} />
+        <Tab.Screen name="Lab2" component={Lab2} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
