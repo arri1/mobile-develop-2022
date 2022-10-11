@@ -1,30 +1,51 @@
-import React, {useState, Fragment, useEffect, useRef} from 'react';
+import React, {useState,useRef} from 'react';
 import {
   Button,
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
-  Text,
-  useColorScheme,
   View,
   Animated,
+  Easing,
 } from 'react-native';
 
 const App = () => {
-  const value = useRef(new Animated.Value(0)).current
+  const valueCar = useRef(new Animated.Value(0)).current
+  const [valueStripe] = React.useState(new Animated.Value(0))
+  let carstop = false
+  let speed = 300
+  
+  const animcar = valueStripe.interpolate({
+    inputRange:[0,1],
+    outputRange: [0,-100]
+  })
+
+  carAnimation = Animated.loop(
+    Animated.sequence([
+      Animated.timing(valueStripe,{
+        toValue: 1,
+        duration: 1000,
+        easing: Easing.linear,
+        useNativeDriver: false,
+      })
+    ]),
+  ).start()
+
+ 
   const carUp = () =>{
-    Animated.timing(value, {toValue: 0, useNativeDriver: true, duration: 300}).start()
+    Animated.timing(valueCar, {toValue: 0, useNativeDriver: true, duration: 300}).start()
+    console.log(speed)
   }
   const carDown = () =>{
-    Animated.timing(value, {toValue: 100, useNativeDriver: true, duration: 300}).start()
+    Animated.timing(valueCar, {toValue: 100, useNativeDriver: true, duration: 300}).start()
   }
+  
+
   return (
     <SafeAreaView style={styles.background}>
       <View style={styles.grass}>
         <View style={styles.road}>
-          
-          <Animated.View style={styles.stripes}>
+          <Animated.View style={{...styles.stripes, left:animcar}}>
+            <View style={styles.stripe} />
             <View style={styles.stripe} />
             <View style={styles.stripe} />
             <View style={styles.stripe} />
@@ -36,11 +57,11 @@ const App = () => {
             <View style={styles.stripe} />
             <View style={styles.stripe} />
           </Animated.View>
-
+         
           <Animated.Image
             resizeMode="center"
             source={require('./resources/car.png')}
-            style={{...styles.carImage, ...styles.car, transform: [{translateY: value.interpolate({inputRange: [0,100], outputRange:[0,100]} )}]}}
+            style={{...styles.carImage, ...styles.car, transform: [{translateY: valueCar.interpolate({inputRange: [0,100], outputRange:[0,100]} )}]}}
           />
         </View>
       </View>
@@ -80,23 +101,24 @@ const styles = StyleSheet.create({
   stripe: {
     backgroundColor: '#FFFFFF',
     width: '5%',
-    height: 10,
+    height: 12,
   },
 
   stripes: {
     justifyContent: 'space-between',
     flexDirection: 'row',
+    left: 100,
+    width: '125%'
   },
 
   carImage: {
     height: 80,
     position: 'absolute',
-    left: -30,
+    left: -80,
   },
 
   car: {
     bottom: 100
-    // top: -20,
   },
 
   buttons: {
