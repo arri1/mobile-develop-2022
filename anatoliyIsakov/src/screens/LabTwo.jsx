@@ -8,11 +8,12 @@ import {
   FlatList,
   ActivityIndicator,
   RefreshControl,
+  TouchableOpacity,
 } from 'react-native';
 import { Post } from '../components/Post';
 import axios from 'axios';
 
-export const LabTwo = () => {
+export const LabTwo = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState();
 
@@ -47,11 +48,13 @@ export const LabTwo = () => {
         refreshControl={<RefreshControl refreshing={isLoading} onRefresh={fetchPosts} />}
         data={items}
         renderItem={({ item }) => (
-          <Post
-            title={item.title}
-            createdAt={item.createdAt}
-            imageUrl={item.imageUrl}
-          />
+          <TouchableOpacity onPress={() => navigation.navigate('FullPost', { id: item.id, title: item.title })}>
+            <Post
+              title={item.title}
+              createdAt={item.createdAt}
+              imageUrl={item.imageUrl}
+            />
+          </TouchableOpacity>
         )}
       />
     </View>

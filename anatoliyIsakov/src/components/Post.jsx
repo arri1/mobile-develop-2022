@@ -5,7 +5,7 @@ import {
     Image,
 } from 'react-native';
 
-function truncateTitle(str) {
+const truncateTitle = (str) => {
     if (str.length >= 50) {
         return str.substring(0, 50) + '...';
     }

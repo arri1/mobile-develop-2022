@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import axios from 'axios';
-import { Loading } from "../components/Loading";
+import { Loading } from "../../components/Loading";
 
 export const FullPost = ({ route, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -44,7 +44,7 @@ export const FullPost = ({ route, navigation }) => {
             <Text style={[styles.postText]}>
                 {data.text}
             </Text>
-        </View>
+        </View >
     )
 
 }
