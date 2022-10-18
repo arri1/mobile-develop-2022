@@ -6,17 +6,17 @@ import {
     Image,
     Alert,
 } from 'react-native';
-  
+
 import axios from 'axios';
 import { Loading } from "../components/Loading";
 
 export const FullPost = ({ route, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState();
-    const { id, title} = route.params;
-    
+    const { id, title } = route.params;
+
     useEffect(() => {
-        navigation.setOptions({title: title});
+        navigation.setOptions({ title: title });
         axios
             .get('https://6327075fba4a9c47532f416c.mockapi.io/articles/' + id)
             .then(({ data }) => {
@@ -37,8 +37,8 @@ export const FullPost = ({ route, navigation }) => {
 
     return (
         <View style={[styles.container]}>
-            <Image 
-                source={{uri: data.imageUrl}}
+            <Image
+                source={{ uri: data.imageUrl }}
                 style={[styles.postImage]}
             />
             <Text style={[styles.postText]}>

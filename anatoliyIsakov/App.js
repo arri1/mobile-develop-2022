@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import {
-  StatusBar,
-  View,
-} from 'react-native';
-import { Navigation } from './screens/Navigation';
+import React from 'react';
+import { TabNavigation } from './screens/TabNavigation';
 
 export default function App() {
-  return <Navigation />
+  return <TabNavigation />
 };

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,26 +8,25 @@ import {
   FlatList,
   ActivityIndicator,
   RefreshControl,
-  TouchableOpacity,
 } from 'react-native';
 import { Post } from '../components/Post';
 import axios from 'axios';
 
-export const Home = ({ navigation }) => {
+export const LabTwo = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState();
-  
+
   const fetchPosts = () => {
     setIsLoading(true);
     axios.get('https://6327075fba4a9c47532f416c.mockapi.io/articles')
-    .then(({ data }) => {
-      setItems(data)
-    }).catch(err => {
-      console.log(err);
-      Alert.alert('Ошибка', 'Не удалось получить статьи');
-    }).finally(() => {
-      setIsLoading(false)
-    });
+      .then(({ data }) => {
+        setItems(data)
+      }).catch(err => {
+        console.log(err);
+        Alert.alert('Ошибка', 'Не удалось получить статьи');
+      }).finally(() => {
+        setIsLoading(false)
+      });
   }
 
   useEffect(fetchPosts, []);
@@ -38,23 +37,21 @@ export const Home = ({ navigation }) => {
         <ActivityIndicator size='large' />
         <Text style={{ marginTop: 15 }}>Идет загрузка</Text>
       </View>
-      
+
     )
   }
 
   return (
-    <View style = {[styles.container]}>
+    <View style={[styles.container]}>
       <FlatList
-        refreshControl={<RefreshControl refreshing={isLoading} onRefresh={fetchPosts}/>}
+        refreshControl={<RefreshControl refreshing={isLoading} onRefresh={fetchPosts} />}
         data={items}
         renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => navigation.navigate('FullPost', { id: item.id, title: item.title })}>
-                <Post 
-                    title={item.title}
-                    createdAt={item.createdAt}
-                    imageUrl={item.imageUrl}
-                />
-            </TouchableOpacity>
+          <Post
+            title={item.title}
+            createdAt={item.createdAt}
+            imageUrl={item.imageUrl}
+          />
         )}
       />
     </View>
