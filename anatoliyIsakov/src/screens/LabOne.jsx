@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
-export function LabOne() {
+export const LabOne = () => {
     const [valueDirection, setValueDirection] = React.useState(0);
 
     return (
