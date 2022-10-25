@@ -10,7 +10,6 @@ export const LabThree = () => {
     const [num, setNum] = React.useState(0);
     const [isGreen, setIsGreen] = React.useState(false);
     const result = React.useMemo(() => sum(num), [num]);
-    // const result = sum(num);
 
     return (
         <View style={styles.container}>
