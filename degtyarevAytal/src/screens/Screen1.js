@@ -25,6 +25,14 @@ export const Screen1 = () => {
       <TouchableOpacity onPress = {() => navigation.navigate('Laba3')}>
         <Text>Лаба3</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity onPress = {() => navigation.navigate('Laba4')}>
+        <Text>Лаба4</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress = {() => navigation.navigate('Laba5')}>
+        <Text>Лаба5</Text>
+      </TouchableOpacity>
     </Container>
   );
 };

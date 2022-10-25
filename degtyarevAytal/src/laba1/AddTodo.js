@@ -23,7 +23,7 @@ export const AddTodo = ({ onSubmit }) => {
         autoCorrect= {false}
         autoCapitalize='words'
       />
-      <Button title="Добавить" onPress={pressHandler} />
+      <Button title = "Добавить"  onPress={pressHandler} />
     </View>
   );
 };
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderStyle: 'solid',
     borderBottomWidth: 2,
-    borderBottomColor: '#3949ab',
+    borderBottomColor: '#3949abbl',
   },
 });

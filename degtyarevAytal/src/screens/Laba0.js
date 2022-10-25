@@ -22,13 +22,18 @@ export const Laba0 = () => {
   return (
     <Container showArrow={true}>
     <SafeAreaView style={styles.mainContainer}>
-      <View style={[styles.bar, {backgroundColor: colors[colorIndex]}]} />
-      <Button
+      <TouchableOpacity 
+      onPress={() => {
+          setColorIndex(((colorIndex + 1) % colors.length));
+        }} 
+        style={[styles.bar, {backgroundColor: colors[colorIndex]}]}  />
+
+      {/* <Button
         title={`Поменять цвет`}
         onPress={() => {
           setColorIndex(((colorIndex + 1) % colors.length));
         }}
-      />
+      /> */}
     </SafeAreaView>
     </Container>
   );
