@@ -17,8 +17,7 @@ export const FullPost = ({ route, navigation }) => {
 
     useEffect(() => {
         navigation.setOptions({ title: title });
-        axios
-            .get('https://6327075fba4a9c47532f416c.mockapi.io/articles/' + id)
+        axios.get('https://6327075fba4a9c47532f416c.mockapi.io/articles/' + id)
             .then(({ data }) => {
                 setData(data)
             }).catch(err => {

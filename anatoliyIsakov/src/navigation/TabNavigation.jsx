@@ -5,6 +5,7 @@ import { LabThree } from "../screens/LabThree";
 import { StackNavigation } from "./StackNavigation";
 import { LabTwoSvg } from "../assets/svg/LabTwoSvg";
 import { LabOneSvg } from "../assets/svg/LabOneSvg";
+import { LabThreeUseMemo } from "../screens/LabThreeUseMemo";
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +35,7 @@ export const TabNavigation = () => {
                 />
                 <Tab.Screen
                     name="Третья лабораторная работа"
-                    component={LabThree}
+                    component={LabThreeUseMemo}
                     options={{
                         tabBarLabel: 'LAB THREE',
                         tabBarIcon: () => <LabOneSvg
