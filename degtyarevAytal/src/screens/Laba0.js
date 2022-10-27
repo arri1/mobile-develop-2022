@@ -28,12 +28,6 @@ export const Laba0 = () => {
         }} 
         style={[styles.bar, {backgroundColor: colors[colorIndex]}]}  />
 
-      {/* <Button
-        title={`Поменять цвет`}
-        onPress={() => {
-          setColorIndex(((colorIndex + 1) % colors.length));
-        }}
-      /> */}
     </SafeAreaView>
     </Container>
   );
