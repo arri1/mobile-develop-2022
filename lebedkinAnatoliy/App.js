@@ -41,7 +41,7 @@ const App = () => {
           options={{
             tabBarIcon: () => {
               return (
-                <Icon name="list" size={20} color="#009" />
+                <Icon name="clock-o" size={20} color="#009" />
               );
             },
           }}

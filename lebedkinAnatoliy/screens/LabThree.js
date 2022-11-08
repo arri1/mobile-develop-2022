@@ -18,15 +18,14 @@ export const LabThree = () => {
         {name:'Night',
         uri:'https://images.unsplash.com/photo-1590418606746-018840f9cd0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'},
     ];
-    const [count, setCount] = useState(30);
-    const calculation = useMemo(() => recursiveCalculation(count), [count]);
-    const recursiveCalculation = (n) => {
-        if (n === 1) {
-            return 1;
-        } else {
-            return n * recursiveCalculation(n - 1);
+    const [count] = useState(0);
+    const expensiveCalculation = (n) => {
+        for (let i = 0; i < 100000000; i++) {
+            n += 1;
         }
+        return n;
     };
+    const calculation = useMemo(() => expensiveCalculation(count), [count]);
     const [imageUri, setImageUri] = useState(timePeriods[0].uri);
     const buttonsMap = () => {
         return timePeriods.map((element) => {
