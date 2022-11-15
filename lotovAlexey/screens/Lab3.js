@@ -21,7 +21,7 @@ const Lab3 = () => {
       <Text style={{fontWeight:'bold', fontSize: 30}}>Use Memo.</Text>
       <Text>Saves</Text>
       {saves.map((save, saveIndex)=>{
-        return <Text key={saveIndex+1}>{saveIndex}) Result = {save}</Text>
+        return <Text key={saveIndex+1}>{saveIndex+1}) Result = {save}</Text>
       })}
       <Button 
         title='Add Saves'
