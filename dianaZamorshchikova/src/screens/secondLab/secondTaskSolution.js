@@ -1,48 +1,79 @@
-import React from 'react';
-import { View, FlatList, StyleSheet, Dimensions, Text, Image  } from 'react-native';
+import React, { useCallback } from 'react';
+import { 
+  View, 
+  FlatList, 
+  StyleSheet, 
+  Dimensions, 
+  Text, 
+  Image,
+  ScrollView,
+  RefreshControl,
+  TouchableOpacity
+} from 'react-native';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
 const baseUrl = 'https://newsapi.org/v2/';
-const query = 'top-headlines?country=us&apiKey=48b84474695446a78893afea51523ce6';
+const query = 'top-headlines?country=us&category=science&apiKey=48b84474695446a78893afea51523ce6';
 const { width, height } = Dimensions.get('window')
 
 export const secondTaskSolution = () => {
   const [news, setNews] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
   useEffect(() => {
     getNews();
   }, []);
+
   const getNews = () => {
     axios.create({
       baseURL: baseUrl
     }).get(query)
-    .then(async function (res) {
+    .then((res) => {
       setNews(res.data);
     })
     .catch(error => {
       alert(error);
     });
   }
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    axios.create({
+      baseURL: baseUrl
+    }).get(query)
+    .then((res) => {
+      setNews(res.data);
+      setRefreshing(false);
+    })
+    .catch(error => {
+      alert(error);
+    });
+  }, []);
+
   return (
-    <View>
-      <FlatList
-        data={news.articles}
-        keyExtractor={(item, index) => 'key' + index}
-        renderItem={({item}) => {
-          return <View style={styles.cardView}>
+      <FlatList 
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+      data={news.articles}
+      keyExtractor={(item, index) => 'key' + index}
+      renderItem={({item}) => {
+        return <View style={styles.cardView}>
           <Text style={styles.title}>{item.title}</Text>
           <Text style={styles.author}>{item.author}</Text>
           <Image style={styles.image} source={{uri:item.urlToImage}}/>
           <Text style={styles.description}>{item.description}</Text>
-      </View>
+        </View>
       }}
       />
-    </View>
     );
   };
 
   const styles = StyleSheet.create({
+    scrollView: {
+      paddingHorizontal: 10,
+    },
     cardView: {
         backgroundColor: 'white',
         margin: width * 0.03,
@@ -81,3 +112,5 @@ export const secondTaskSolution = () => {
 
     }
 });
+
+
