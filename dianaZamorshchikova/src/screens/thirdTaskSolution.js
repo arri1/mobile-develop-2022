@@ -32,17 +32,17 @@ export const thirdTaskSolution = () => {
       </Text>
       <Pressable style={styles.button}
         onPress={() => {
-          setInc(i => i + 1);
+          setInc(inc + 1);
           console.log("Re-rendered!");
         }}>
-        <Text style={styles.text}>{'Re-render'}</Text>
+        <Text style={styles.text}>Re-render pressed {inc} times</Text>
       </Pressable>
     </View>
     </SafeAreaView>
   );
 }; 
 
-function factorialOf(n) {
+const factorialOf = (n) => {
     console.log("factorialOf(n) called!");
     return n <= 0 ? 1 : n * factorialOf(n - 1);
 }  
