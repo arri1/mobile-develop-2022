@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import { useDispatch, useSelector } from "react-redux";
+import {testSlice} from '../store/rootStore';
 const colors = ['red', 'orange', 'blue'];
 const Lab1 = () => {
-  const [count, setCount] = useState(0);
+  const count = useSelector(state => state.test.value);
+  const dispatch = useDispatch();
+
   const [colorIndex, setColorIndex] = useState(0);
 
   return (
@@ -11,9 +15,15 @@ const Lab1 = () => {
       <Text>{`Counter: ${count}`}</Text>
       <View style={styles.button}>
         <Button
-          title={'add'}
+          title={'increment'}
           onPress={() => {
-            setCount(count + 1);
+            dispatch(testSlice.actions.incremented());
+          }}
+        />
+        <Button
+          title={'decrement'}
+          onPress={() => {
+            dispatch(testSlice.actions.decremented());
           }}
         />
       </View>
