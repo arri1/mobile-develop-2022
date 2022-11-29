@@ -1,6 +1,7 @@
 import {View, Text} from 'react-native';
+import {createStore} from 'redux';
 
-const HomeScreen = () => {
+const Lab4 = () => {
   return (
     <View
       style={{
@@ -16,4 +17,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default Lab4;

@@ -8,9 +8,9 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Tabs/>
+      <Tabs />
     </NavigationContainer>
   );
-}
+};
 
 export default App;
