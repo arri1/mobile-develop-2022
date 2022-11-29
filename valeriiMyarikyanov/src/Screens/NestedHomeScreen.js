@@ -11,6 +11,10 @@ export const NestedHomeScreen = ({navigation}) => {
         title="Laboratory 2"
         onPress={() => navigation.navigate('Laboratory 2')}
       />
+      <Button
+        title="Laboratory 3"
+        onPress={() => navigation.navigate('Laboratory 3')}
+      />
     </View>
   );
 };
