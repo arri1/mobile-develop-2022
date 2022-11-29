@@ -1,5 +1,5 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {StyleSheet, Text, View, Image, TouchableOppacity} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import Lab1 from '../screens/Lab1';
 import Lab2 from '../screens/Lab2';
