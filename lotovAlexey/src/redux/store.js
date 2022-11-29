@@ -1,10 +1,6 @@
-import {
-  combineReducers,
-  applyMiddleware,
-  legacy_createStore as createStore,
-} from 'redux';
-import thunk from 'redux-thunk';
+import {applyMiddleware, combineReducers, legacy_createStore as createStore} from 'redux';
 import colorReducer from './reducers';
+import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({colorReducer});
 
