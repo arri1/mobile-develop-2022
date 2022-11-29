@@ -6,11 +6,19 @@ import {
   View,
   Animated,
   Easing,
+  Alert,
 } from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {setSkyColor} from '../src/redux/actions';
 
 const Lab1 = () => {
   const valueCar = useRef(new Animated.Value(0)).current;
   const [valueStripe] = React.useState(new Animated.Value(0));
+
+  // const [skyColor] = React.useState('#87CEEB');
+
+  const {skyColor} = useSelector(state => state.colorReducer);
+  const dispatch = useDispatch();
 
   const animcar = valueStripe.interpolate({
     inputRange: [0, 1],
@@ -44,7 +52,7 @@ const Lab1 = () => {
   };
 
   return (
-    <SafeAreaView style={styles.background}>
+    <SafeAreaView style={{...styles.background, backgroundColor: skyColor}}>
       <View style={styles.grass}>
         <View style={styles.road}>
           <Animated.View style={{...styles.stripes, left: animcar}}>

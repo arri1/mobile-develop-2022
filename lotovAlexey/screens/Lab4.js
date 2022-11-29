@@ -1,7 +1,18 @@
-import {View, Text} from 'react-native';
-import {createStore} from 'redux';
+import {useState} from 'react';
+import {View, Button} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {setSkyColor} from '../src/redux/actions';
 
 const Lab4 = () => {
+  const {skyColor} = useSelector(state => state.colorReducer);
+  const dispatch = useDispatch();
+  useDispatch;
+  const setColorNight = () => {
+    dispatch(setSkyColor('#666560'));
+  };
+  const setColorDay = () => {
+    dispatch(setSkyColor('#87CEEB'));
+  };
   return (
     <View
       style={{
@@ -10,9 +21,8 @@ const Lab4 = () => {
         backgroundColor: '#8fcbbc',
         justifyContent: 'center',
       }}>
-      <Text style={{fontFamily: 'lucida grande', fontWeight: 'bold'}}>
-        HomeScreen
-      </Text>
+      <Button title="Night" onPress={setColorNight} />
+      <Button title="Day" onPress={setColorDay} />
     </View>
   );
 };
