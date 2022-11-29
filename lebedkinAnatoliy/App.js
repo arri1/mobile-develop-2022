@@ -6,6 +6,9 @@ import {LabOne} from './screens/LabOne';
 import {LabTwo} from './screens/LabTwo';
 import {LabThree} from './screens/LabThree';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from 'react-redux';
+import { changeCount } from './actions/counts';
+import { bindActionCreators } from 'redux';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,4 +54,16 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = state => ({
+  count: state.count,
+});
+
+const ActionCreators = Object.assign(
+  {},
+  changeCount,
+);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(ActionCreators, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

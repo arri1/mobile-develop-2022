@@ -6,7 +6,6 @@ import {Image,
         StyleSheet,
         Text,
     } from 'react-native';
-import { globalTime, skipTime } from '../store/ReduxStore';
 
 export const LabThree = () => {
     const timePeriods = [
@@ -25,8 +24,6 @@ export const LabThree = () => {
     };
     const calculation = useMemo(() => expensiveCalculation(count), [count]);
     const [imageUri, setImageUri] = useState(timePeriods[0]);
-    let time;
-    globalTime.subscribe(() => time = globalStore.getState())
     return (
         <View style = {styles.mainContainer}>
             <View>
