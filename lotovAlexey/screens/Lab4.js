@@ -7,7 +7,7 @@ const Lab4 = () => {
   const dispatch = useDispatch();
   useDispatch;
   const setColorNight = () => {
-    dispatch(setSkyColor('#666560'));
+    dispatch(setSkyColor('#0A123D'));
   };
   const setColorDay = () => {
     dispatch(setSkyColor('#87CEEB'));
