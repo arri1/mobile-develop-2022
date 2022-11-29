@@ -29,7 +29,7 @@ export const Navigator = () => {
           options={{
             tabBarLabel: 'Главная',
             tabBarIcon: ({focused, color, size}) => (
-              <SvgScience color={focused ? 'red' : 'blue'} />
+              <SvgScience color={focused ? 'blue' : 'grey'} />
             ),
           }}
         />
@@ -39,7 +39,7 @@ export const Navigator = () => {
           options={{
             tabBarLabel: 'Личный кабинет',
             tabBarIcon: ({focused, color, size}) => (
-              <SvgProfile color={focused ? 'red' : 'blue'} />
+              <SvgProfile color={focused ? 'blue' : 'grey'} />
             ),
           }}
         />
