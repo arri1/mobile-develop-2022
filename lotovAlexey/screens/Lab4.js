@@ -1,9 +1,8 @@
-import {View, Button, StyleSheet, TouchableOpacity, Text} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {setSkyColor} from '../src/redux/actions';
 
 const Lab4 = () => {
-  const {skyColor} = useSelector(state => state.colorReducer);
   const dispatch = useDispatch();
   useDispatch;
   const setColorNight = () => {

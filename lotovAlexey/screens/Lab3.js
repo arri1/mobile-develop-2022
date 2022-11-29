@@ -19,7 +19,7 @@ const Lab3 = () => {
       {saves.map((save, saveIndex) => {
         return (
           <Text key={saveIndex + 1}>
-            {saveIndex + 1}) Result = {save}
+            {saveIndex + 1} Result = {save}
           </Text>
         );
       })}

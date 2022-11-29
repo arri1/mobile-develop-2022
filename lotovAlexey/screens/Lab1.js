@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useRef} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -6,26 +6,21 @@ import {
   View,
   Animated,
   Easing,
-  Alert,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {setSkyColor} from '../src/redux/actions';
+import {useSelector} from 'react-redux';
 
 const Lab1 = () => {
   const valueCar = useRef(new Animated.Value(0)).current;
   const [valueStripe] = React.useState(new Animated.Value(0));
 
-  // const [skyColor] = React.useState('#87CEEB');
-
   const {skyColor} = useSelector(state => state.colorReducer);
-  const dispatch = useDispatch();
 
   const animcar = valueStripe.interpolate({
     inputRange: [0, 1],
     outputRange: [0, -100],
   });
 
-  carAnimation = Animated.loop(
+  Animated.loop(
     Animated.sequence([
       Animated.timing(valueStripe, {
         toValue: 1,
