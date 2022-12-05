@@ -8,14 +8,16 @@ import {
   View,
   TouchableOpacity, Pressable,
 } from "react-native";
+import { useSelector } from 'react-redux';
 
 const colors = ['red', 'orange', 'blue', 'yellow', 'black'];
 
 export const firstTaskSolution = () => {
+    const {background, tabColor} = useSelector(state => state.colorReducer); 
     const [count, setCount] = useState(0);
     const [colorIndex, setColorIndex] = useState(0);
     return (
-      <SafeAreaView style={styles.mainContainer}>
+      <SafeAreaView style={{...styles.mainContainer, backgroundColor: background}}>
         <Text style={styles.red}>{'Counter: ' + count.toString()}</Text>
         <View style={styles.countButton}>
           <Pressable

@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 
 const baseUrl = 'https://newsapi.org/v2/';
@@ -17,6 +18,7 @@ const query = 'top-headlines?country=us&category=science&apiKey=48b84474695446a7
 const { width, height } = Dimensions.get('window')
 
 export const secondTaskSolution = () => {
+  const {background, tabColor} = useSelector(state => state.colorReducer); 
   const [news, setNews] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   useEffect(() => {
@@ -50,7 +52,7 @@ export const secondTaskSolution = () => {
   }, []);
 
   return (
-      <FlatList 
+      <FlatList style={{backgroundColor: background}}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }

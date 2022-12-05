@@ -7,15 +7,17 @@ import {
     Text,
     Pressable
 } from 'react-native';
+import { useSelector } from 'react-redux';
 
 export const thirdTaskSolution = () => {
+  const {background, tabColor} = useSelector(state => state.colorReducer); 
   console.log("Screen is rendered");
   const [number, setNumber] = useState(1);
   const [inc, setInc] = useState(0);
   const factorial = useMemo(() => factorialOf(number), [number]);
   return (
     <SafeAreaView style={{flex: 1}}>
-    <View style={styles.container}>
+    <View style={{...styles.container, backgroundColor: background}}>
     <Text style={{padding: 10, fontSize: 24}}>Please, enter your number below</Text>
       <TextInput
         style={styles.textInput}
