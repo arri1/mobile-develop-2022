@@ -4,13 +4,13 @@ const initialState = {
   skyColor: '#87CEEB',
 };
 
-function colorReducer(state = initialState, action) {
+const colorReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SKY_COLOR:
       return {...state, skyColor: action.payload};
     default:
       return state;
   }
-}
+};
 
 export default colorReducer;

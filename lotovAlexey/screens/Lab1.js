@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useRef} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -6,26 +6,24 @@ import {
   View,
   Animated,
   Easing,
-  Alert,
+  Pressable,
+  Text,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {setSkyColor} from '../src/redux/actions';
+import {color} from 'react-native-reanimated';
+import {useSelector} from 'react-redux';
 
 const Lab1 = () => {
   const valueCar = useRef(new Animated.Value(0)).current;
   const [valueStripe] = React.useState(new Animated.Value(0));
 
-  // const [skyColor] = React.useState('#87CEEB');
-
   const {skyColor} = useSelector(state => state.colorReducer);
-  const dispatch = useDispatch();
 
   const animcar = valueStripe.interpolate({
     inputRange: [0, 1],
     outputRange: [0, -100],
   });
 
-  carAnimation = Animated.loop(
+  Animated.loop(
     Animated.sequence([
       Animated.timing(valueStripe, {
         toValue: 1,
@@ -89,8 +87,12 @@ const Lab1 = () => {
       </View>
 
       <View style={styles.buttons}>
-        <Button title="up" style={styles.button} onPress={carUp} />
-        <Button title="down" style={styles.button} onPress={carDown} />
+        <Pressable onPress={carUp} style={styles.button}>
+          <Text style={styles.buttonText}> UP </Text>
+        </Pressable>
+        <Pressable onPress={carDown} style={styles.button}>
+          <Text style={styles.buttonText}> Down </Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -149,8 +151,19 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: 100,
-    height: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 60,
+    height: 32,
+    backgroundColor: '#007EAF',
+    borderRadius: 15,
+    margin: 20,
+  },
+
+  buttonText: {
+    fontSize: 12,
+    fontFamily: 'Kulim',
+    color: '#FFFFFF',
   },
 });
 
