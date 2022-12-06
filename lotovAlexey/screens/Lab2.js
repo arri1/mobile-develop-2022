@@ -38,7 +38,13 @@ const Lab2 = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        backgroundColor: '#8CE585',
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+      }}>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -47,13 +53,11 @@ const Lab2 = () => {
 
       {isLoading && (
         <TouchableOpacity
-          style={styles.buttonStyle}
+          style={styles.button}
           onPress={getDataUsingSimpleGetCall}>
-          <Text>Simple Get Call</Text>
+          <Text style={styles.buttonText}>Simple Get Call</Text>
         </TouchableOpacity>
       )}
-
-      <StatusBar />
     </View>
   );
 };
@@ -61,11 +65,12 @@ const Lab2 = () => {
 const styles = StyleSheet.create({
   containerFlate: {
     flex: 1,
-    margin: 16,
+    marginTop: 20,
     height: 150,
-    borderRadius: 8,
+    width: '100%',
+    borderRadius: 14,
     elevation: 4,
-    backgroundColor: '#e32f45',
+    backgroundColor: '#007EAF',
     shadowColor: 'black',
     shadowOpacity: 0.25,
     shadowOffset: {
@@ -74,25 +79,32 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 8,
   },
-  buttonStyle: {
-    justifyContent: 'center',
+  button: {
+    margin: 20,
+    width: 351,
+    height: 41,
+    borderRadius: 14,
+    backgroundColor: '#007EAF',
     alignItems: 'center',
-    backgroundColor: '#748c94',
-    borderRadius: 8,
-    padding: 10,
-    width: '90%',
-    marginTop: 550,
-    left: '5%',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    fontFamily: 'Kulim',
+    fontSize: 16,
+    lineHeight: 21,
+    letterSpacing: 0.25,
+    color: 'white',
   },
   innerContainer: {
+    width: 331,
     flex: 1,
-    borderRadius: 10,
+    borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 16,
     color: 'white',
   },
 });

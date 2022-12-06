@@ -32,12 +32,12 @@ const Tabs = () => {
                 source={require('../assets/icons/home.png')}
                 resizeMode="contain"
                 style={{
-                  tintColor: focused ? '#e32f45' : '#748c94',
+                  tintColor: focused ? '#00C8A5' : '#34568B',
                   ...styles.TabBarImage,
                 }}
               />
               <Text
-                style={{color: focused ? '#e32f45' : '#748c94', fontSize: 12}}>
+                style={{color: focused ? '#00C8A5' : '#34568B', fontSize: 12}}>
                 HOME
               </Text>
             </View>
@@ -54,12 +54,12 @@ const Tabs = () => {
                 source={require('../assets/icons/task.png')}
                 resizeMode="contain"
                 style={{
-                  tintColor: focused ? '#e32f45' : '#748c94',
+                  tintColor: focused ? '#00C8A5' : '#34568B',
                   ...styles.TabBarImage,
                 }}
               />
               <Text
-                style={{color: focused ? '#e32f45' : '#748c94', fontSize: 12}}>
+                style={{color: focused ? '#00C8A5' : '#34568B', fontSize: 12}}>
                 LAB1
               </Text>
             </View>
@@ -76,12 +76,12 @@ const Tabs = () => {
                 source={require('../assets/icons/task.png')}
                 resizeMode="contain"
                 style={{
-                  tintColor: focused ? '#e32f45' : '#748c94',
+                  tintColor: focused ? '#00C8A5' : '#34568B',
                   ...styles.TabBarImage,
                 }}
               />
               <Text
-                style={{color: focused ? '#e32f45' : '#748c94', fontSize: 12}}>
+                style={{color: focused ? '#00C8A5' : '#34568B', fontSize: 12}}>
                 LAB2
               </Text>
             </View>
@@ -98,12 +98,12 @@ const Tabs = () => {
                 source={require('../assets/icons/task.png')}
                 resizeMode="contain"
                 style={{
-                  tintColor: focused ? '#e32f45' : '#748c94',
+                  tintColor: focused ? '#00C8A5' : '#34568B',
                   ...styles.TabBarImage,
                 }}
               />
               <Text
-                style={{color: focused ? '#e32f45' : '#748c94', fontSize: 12}}>
+                style={{color: focused ? '#00C8A5' : '#34568B', fontSize: 12}}>
                 Lab3
               </Text>
             </View>
@@ -120,12 +120,12 @@ const Tabs = () => {
                 source={require('../assets/icons/task.png')}
                 resizeMode="contain"
                 style={{
-                  tintColor: focused ? '#e32f45' : '#748c94',
+                  tintColor: focused ? '#00C8A5' : '#34568B',
                   ...styles.TabBarImage,
                 }}
               />
               <Text
-                style={{color: focused ? '#e32f45' : '#748c94', fontSize: 12}}>
+                style={{color: focused ? '#00C8A5' : '#34568B', fontSize: 12}}>
                 Lab4
               </Text>
             </View>

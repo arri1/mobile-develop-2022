@@ -6,7 +6,10 @@ import {
   View,
   Animated,
   Easing,
+  Pressable,
+  Text,
 } from 'react-native';
+import {color} from 'react-native-reanimated';
 import {useSelector} from 'react-redux';
 
 const Lab1 = () => {
@@ -84,8 +87,12 @@ const Lab1 = () => {
       </View>
 
       <View style={styles.buttons}>
-        <Button title="up" style={styles.button} onPress={carUp} />
-        <Button title="down" style={styles.button} onPress={carDown} />
+        <Pressable onPress={carUp} style={styles.button}>
+          <Text style={styles.buttonText}> UP </Text>
+        </Pressable>
+        <Pressable onPress={carDown} style={styles.button}>
+          <Text style={styles.buttonText}> Down </Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -144,8 +151,19 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: 100,
-    height: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 60,
+    height: 32,
+    backgroundColor: '#007EAF',
+    borderRadius: 15,
+    margin: 20,
+  },
+
+  buttonText: {
+    fontSize: 12,
+    fontFamily: 'Kulim',
+    color: '#FFFFFF',
   },
 });
 
