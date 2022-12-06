@@ -26,8 +26,7 @@ const Lab4 = () => {
           color: '#FFFFFF',
           fontFamily: 'Kulim',
         }}>
-        {' '}
-        Set sky color on Lab1{' '}
+        Set sky color on Lab1
       </Text>
       <View
         style={{
