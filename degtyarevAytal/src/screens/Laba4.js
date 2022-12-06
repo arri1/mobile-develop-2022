@@ -120,7 +120,7 @@ export const Laba4 = () => {
   return (
     <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
       <View style={{marginVertical: 50}}>
-        <Text> Number Of Burger </Text>
+        <Text> Number of burger  </Text>
         <Button title="Increase Burger" onPress={() => {}} />
       </View>
       <View style={{marginVertical: 50}}>
