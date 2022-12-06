@@ -7,8 +7,9 @@ import {
   View,
   TouchableOpacity, 
 } from "react-native";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setBackground, setTabColor } from '../../redux/actions';
+
 
 const tabColors = ['#55AAFF', '#03AC13', '#B90E0A', '#FBB117', '#030001'];
 const backgroundColors = ['#FOF7F4', '#D5D6EA', '#F6F6EB', '#D7ECD9', '#F6ECF5', '#F3DDF2'];
@@ -24,8 +25,9 @@ export const fourthTaskSolution = () => {
   const setTab = () => {
     dispatch(setTabColor(tabColors[tabColorIndex]));  
   }
+  const {background, tabColor} = useSelector(state => state.colorReducer); 
     return (
-      <SafeAreaView style={styles.mainContainer}>
+      <SafeAreaView style={{...styles.mainContainer, backgroundColor: background}}>
         <Text style={styles.black}>{'Change background color with redux: '}</Text>
         <TouchableOpacity
           style={[styles.bar, {backgroundColor: backgroundColors[bgColorIndex]}]}
@@ -70,7 +72,8 @@ const styles = StyleSheet.create({
       marginTop: 10,
       width: 100,
       height: 100,
-      backgroundColor: 'red',
+      borderWidth: 5,
+      borderColor: 'black',
     },
     changeColorButton: {
       marginTop: 10,
