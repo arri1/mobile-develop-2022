@@ -14,7 +14,7 @@ import { setBackground, setTabColor } from '../../redux/actions';
 const tabColors = ['#55AAFF', '#03AC13', '#B90E0A', '#FBB117', '#030001'];
 const backgroundColors = ['#FOF7F4', '#D5D6EA', '#F6F6EB', '#D7ECD9', '#F6ECF5', '#F3DDF2'];
 
-export const fourthTaskSolution = () => {
+export const FourthTaskSolution = () => {
   const [bgColorIndex, setBgColorIndex] = useState(0);
   const [tabColorIndex, setTabColorIndex] = useState(0);
   const dispatch = useDispatch();

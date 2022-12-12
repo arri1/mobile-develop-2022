@@ -17,7 +17,7 @@ const baseUrl = 'https://newsapi.org/v2/';
 const query = 'top-headlines?country=us&category=science&apiKey=48b84474695446a78893afea51523ce6';
 const { width, height } = Dimensions.get('window')
 
-export const secondTaskSolution = () => {
+export const SecondTaskSolution = () => {
   const {background, tabColor} = useSelector(state => state.colorReducer); 
   const [news, setNews] = useState([]);
   const [refreshing, setRefreshing] = useState(false);

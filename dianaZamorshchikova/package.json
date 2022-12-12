@@ -10,9 +10,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/native": "^6.0.13",
+    "@react-navigation/stack": "^6.3.8",
     "axios": "^0.27.2",
+    "events": "^3.3.0",
+    "parse": "^3.5.1",
     "react": "18.1.0",
     "react-native": "0.70.0",
     "react-native-gesture-handler": "^2.8.0",

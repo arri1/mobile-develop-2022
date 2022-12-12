@@ -8,10 +8,10 @@
 
  import React from 'react';
  import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
- import { firstTaskSolution } from './src/screens/firstTaskSolution';
- import { secondTaskSolution } from './src/screens/secondTaskSolution';
- import { thirdTaskSolution } from './src/screens/thirdTaskSolution';
- import { fourthTaskSolution } from './src/screens/fourthTaskSolution';
+ import { FirstTaskSolution } from './src/screens/FirstTaskSolution';
+ import { SecondTaskSolution } from './src/screens/SecondTaskSolution';
+ import { ThirdTaskSolution } from './src/screens/ThirdTaskSolution';
+ import { FourthTaskSolution } from './src/screens/FourthTaskSolution';
  import {
   StyleSheet,
   View,
@@ -27,7 +27,7 @@ import { useSelector } from 'react-redux';
        <tabNavigator.Navigator>
          <tabNavigator.Screen 
          name='First laboratory' 
-         component={firstTaskSolution} 
+         component={FirstTaskSolution} 
          options={
           {
             tabBarLabel: 'ЛАБ 1',
@@ -48,7 +48,7 @@ import { useSelector } from 'react-redux';
          />
          <tabNavigator.Screen 
          name='Second laboratory' 
-         component={secondTaskSolution}
+         component={SecondTaskSolution}
          options={
           {
             tabBarLabel: 'ЛАБ 2',
@@ -69,7 +69,7 @@ import { useSelector } from 'react-redux';
          />
          <tabNavigator.Screen 
          name='Third laboratory' 
-         component={thirdTaskSolution}
+         component={ThirdTaskSolution}
          options={
           {
             tabBarLabel: 'ЛАБ 3',
@@ -89,7 +89,7 @@ import { useSelector } from 'react-redux';
          }/>
          <tabNavigator.Screen 
          name='Fourth laboratory' 
-         component={fourthTaskSolution}
+         component={FourthTaskSolution}
          options={
           {
             tabBarLabel: 'ЛАБ 4',
