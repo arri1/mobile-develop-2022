@@ -56,11 +56,13 @@ const Tabs = () => {
                 style={{
                   tintColor: focused ? '#00C8A5' : '#34568B',
                   ...styles.TabBarImage,
+                  height: 23,
+                  marginBottom: 2,
                 }}
               />
               <Text
                 style={{color: focused ? '#00C8A5' : '#34568B', fontSize: 12}}>
-                LAB1
+                Lab1
               </Text>
             </View>
           ),
@@ -78,11 +80,13 @@ const Tabs = () => {
                 style={{
                   tintColor: focused ? '#00C8A5' : '#34568B',
                   ...styles.TabBarImage,
+                  height: 23,
+                  marginBottom: 2,
                 }}
               />
               <Text
                 style={{color: focused ? '#00C8A5' : '#34568B', fontSize: 12}}>
-                LAB2
+                Lab2
               </Text>
             </View>
           ),
@@ -100,6 +104,8 @@ const Tabs = () => {
                 style={{
                   tintColor: focused ? '#00C8A5' : '#34568B',
                   ...styles.TabBarImage,
+                  height: 23,
+                  marginBottom: 2,
                 }}
               />
               <Text
@@ -122,6 +128,8 @@ const Tabs = () => {
                 style={{
                   tintColor: focused ? '#00C8A5' : '#34568B',
                   ...styles.TabBarImage,
+                  height: 23,
+                  marginBottom: 2,
                 }}
               />
               <Text
