@@ -8,46 +8,57 @@ import {
   Pressable,
   TextInput
 } from "react-native";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Parse from 'parse';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { setUsers } from '../../redux/actions';
+// import Parse from 'parse';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
-//Initializing the SDK. 
-Parse.setAsyncStorage(AsyncStorage);
-//You need to copy BOTH the the Application ID and the Javascript Key from: Dashboard->App Settings->Security & Keys 
-Parse.initialize('RXdWde0m3YFUcvZMfvTcDo7ihWFlfGCL6akeFClZ','nrAgUEcjvXfZqA2WDZXctEL7Kaq0E0CUwMKZDim4');
-Parse.serverURL = 'https://parseapi.back4app.com/';
+// //Initializing the SDK. 
+// Parse.setAsyncStorage(AsyncStorage);
+// //You need to copy BOTH the the Application ID and the Javascript Key from: Dashboard->App Settings->Security & Keys 
+// Parse.initialize('RXdWde0m3YFUcvZMfvTcDo7ihWFlfGCL6akeFClZ','nrAgUEcjvXfZqA2WDZXctEL7Kaq0E0CUwMKZDim4');
+// Parse.serverURL = 'https://parseapi.back4app.com/';
 
 export const LoginScreen = () => {
-  const {background, tabColor} = useSelector(state => state.colorReducer); 
+  const {background, tabColor, users} = useSelector(state => state.colorReducer); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigator = useNavigation();
-
-  const doUserLogIn = async function () {
-    // Note that these values come from state variables that we've declared before
-    const usernameValue = email;
-    const passwordValue = password;
-    return await Parse.User.logIn(usernameValue, passwordValue)
-      .then(async (loggedInUser) => {
-        // logIn returns the corresponding ParseUser object
-        Alert.alert(
-          'Success!',
-          `User ${loggedInUser.get('username')} has successfully signed in!`,
-        );
-        // To verify that this is in fact the current user, currentAsync can be used
-        const currentUser = await Parse.User.currentAsync();
-        console.log(loggedInUser === currentUser);
-        navigator.navigate("Tab");
-      })
-      .catch((error) => {
-        // Error can be caused by wrong parameters or lack of Internet connection
-        Alert.alert('Error!', error.message);
-        return false;
-      });
-  };
+  const dispatch = useDispatch();
+  useDispatch;
+  const getUsers = () => {
+    try {
+        return AsyncStorage.getItem('USERS')
+    } catch (error) {
+        console.error(error);
+        return;
+    }
+  }
+  // const doUserLogIn = async function () {
+  //   // Note that these values come from state variables that we've declared before
+  //   const usernameValue = email;
+  //   const passwordValue = password;
+  //   return await Parse.User.logIn(usernameValue, passwordValue)
+  //     .then(async (loggedInUser) => {
+  //       // logIn returns the corresponding ParseUser object
+  //       Alert.alert(
+  //         'Success!',
+  //         `User ${loggedInUser.get('username')} has successfully signed in!`,
+  //       );
+  //       // To verify that this is in fact the current user, currentAsync can be used
+  //       const currentUser = await Parse.User.currentAsync();
+  //       console.log(loggedInUser === currentUser);
+  //       navigator.navigate("Tab");
+  //     })
+  //     .catch((error) => {
+  //       // Error can be caused by wrong parameters or lack of Internet connection
+  //       Alert.alert('Error!', error.message);
+  //       return false;
+  //     });
+  // };
     return (
       <SafeAreaView style={{...styles.mainContainer, backgroundColor: background}}>
         <TextInput
@@ -76,8 +87,18 @@ export const LoginScreen = () => {
               if (!password) {
                 alert('Please fill password');
                 return;
-              } else
-              doUserLogIn()
+              } else {
+                if (getUsers) {
+                  dispatch(setUsers(getUsers))
+                }
+                if (users[email] != password) {
+                  showAlert(false);
+                } else {
+                  navigator.navigate("Tab");
+                  alert(`Welcome back ${email}`);
+                }
+              }
+              //doUserLogIn()
               setEmail("")
               setPassword("")
             }}>

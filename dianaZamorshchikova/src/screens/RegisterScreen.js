@@ -6,46 +6,55 @@ import {
   Text,
   View,
   Pressable,
-  TextInput
+  TextInput,
 } from "react-native";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Parse from 'parse';
+import { setUsers } from '../../redux/actions';
+// import Parse from 'parse';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-//Initializing the SDK. 
-Parse.setAsyncStorage(AsyncStorage);
-//You need to copy BOTH the the Application ID and the Javascript Key from: Dashboard->App Settings->Security & Keys 
-Parse.initialize('RXdWde0m3YFUcvZMfvTcDo7ihWFlfGCL6akeFClZ','nrAgUEcjvXfZqA2WDZXctEL7Kaq0E0CUwMKZDim4');
-Parse.serverURL = 'https://parseapi.back4app.com/';
+// //Initializing the SDK. 
+// Parse.setAsyncStorage(AsyncStorage);
+// //You need to copy BOTH the the Application ID and the Javascript Key from: Dashboard->App Settings->Security & Keys 
+// Parse.initialize('RXdWde0m3YFUcvZMfvTcDo7ihWFlfGCL6akeFClZ','nrAgUEcjvXfZqA2WDZXctEL7Kaq0E0CUwMKZDim4');
+// Parse.serverURL = 'https://parseapi.back4app.com/';
+
 
 
 export const RegisterScreen = () => {
-  const {background, tabColor} = useSelector(state => state.colorReducer); 
+  const {background, tabColor, users} = useSelector(state => state.colorReducer); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigator = useNavigation();
-  const doUserRegistration = async function () {
-    // Note that these values come from state variables that we've declared before
-    const usernameValue = email;
-    const passwordValue = password;
-    // Since the signUp method returns a Promise, we need to call it using await
-    return await Parse.User.signUp(usernameValue, passwordValue)
-      .then((createdUser) => {
-        // Parse.User.signUp returns the already created ParseUser object if successful
-        Alert.alert(
-          'Success!',
-          `User ${createdUser.getUsername()} was successfully created!`,
-        );
-        return true;
-      })
-      .catch((error) => {
-        // signUp can fail if any parameter is blank or failed an uniqueness check on the server
-        Alert.alert('Error!', error.message);
-        return false;
-      });
-  };
+  const dispatch = useDispatch();
+  useDispatch;
+  const addUser = (emailValue, passwordValue) => {
+    dispatch(setUsers(users[emailValue] = passwordValue));
+    AsyncStorage.setItem('USERS', users)  
+    alert(`User ${emailValue} was successfully created!`);
+  }
+  // const doUserRegistration = async function () {
+  //   // Note that these values come from state variables that we've declared before
+  //   const usernameValue = email;
+  //   const passwordValue = password;
+  //   // Since the signUp method returns a Promise, we need to call it using await
+  //   return await Parse.User.signUp(usernameValue, passwordValue)
+  //     .then((createdUser) => {
+  //       // Parse.User.signUp returns the already created ParseUser object if successful
+  //       Alert.alert(
+  //         'Success!',
+  //         `User ${createdUser.getUsername()} was successfully created!`,
+  //       );
+  //       return true;
+  //     })
+  //     .catch((error) => {
+  //       // signUp can fail if any parameter is blank or failed an uniqueness check on the server
+  //       Alert.alert('Error!', error.message);
+  //       return false;
+  //     });
+  // };
     return (
       <SafeAreaView style={{...styles.mainContainer, backgroundColor: background}}>
         <TextInput
@@ -66,8 +75,40 @@ export const RegisterScreen = () => {
         <View style={styles.countButton}>
           <Pressable
             style={styles.button}
-            onPress={() => doUserRegistration()}>
+            onPress={() => {
+              //doUserRegistration()
+              if (!email) {
+                alert('Please fill email');
+                return;
+              } else
+              if (!password) {
+                alert('Please fill password');
+                return;
+              } else {
+                const usernameValue = email;
+                const passwordValue = password;
+                if (users[usernameValue] == password) {
+                  alert(`User ${usernameValue} is already registered!`);
+                } else {
+                  addUser(usernameValue, passwordValue);
+                } 
+              }
+              setEmail("")
+              setPassword("")
+            }}>
             <Text style={styles.text}>{'Register'}</Text>
+          </Pressable>
+        </View>
+        <View style={styles.countButton}>
+          <Pressable
+            style={styles.button}
+            onPress={() => {
+              //doUserRegistration()
+              navigator.navigate('LoginScreen')
+              setEmail("")
+              setPassword("")
+            }}>
+            <Text style={styles.text}>{'I already have an account, sign in'}</Text>
           </Pressable>
         </View>
       </SafeAreaView>
