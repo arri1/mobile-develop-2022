@@ -5,6 +5,9 @@ import {View,
         StyleSheet,
         Text,
     } from 'react-native';
+import { connect } from 'react-redux';
+import { changeCount } from './actions/counts';
+import { bindActionCreators } from 'redux';
 
 export const Lab4 = () => {
     const decrementCount = () => {
@@ -41,4 +44,16 @@ const styles = StyleSheet.create({
     },
   });
 
-export default Lab4;
+const mapStateToProps = state => ({
+    count: state.count,
+});
+
+const ActionCreators = Object.assign(
+    {},
+    changeCount,
+);
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(ActionCreators, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Lab4);
