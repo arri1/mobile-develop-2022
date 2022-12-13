@@ -1,13 +1,8 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import {Text, View, Pressable, TextInput} from 'react-native';
 import isaac from 'isaac';
 import bcrypt from 'react-native-bcrypt';
+import Style from '../Style';
 
 // Setting RNG
 bcrypt.setRandomFallback(len => {
@@ -38,32 +33,16 @@ export const Lab3Screen = () => {
     [textToHash],
   );
   return (
-    <View>
-      <TextInput onChangeText={onChangeText} value={text} />
-      <TouchableOpacity
-        style={styles.buttonStyle}
+    <View style={Style.container}>
+      <TextInput 
+        style = {Style.textInput}
+      onChangeText={onChangeText} value={text} />
+      <Pressable
+        style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
         onPress={() => prepareTextToHash(text)}>
         <Text>Generate bcrypt hash</Text>
-      </TouchableOpacity>
+      </Pressable>
       <Text>{cachedHash}</Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-  },
-
-  buttonStyle: {
-    alignItems: 'center',
-
-    backgroundColor: '#DDDDDD',
-
-    padding: 10,
-
-    width: '100%',
-
-    marginTop: 16,
-  },
-});

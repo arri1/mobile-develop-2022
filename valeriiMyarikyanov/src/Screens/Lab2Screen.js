@@ -1,13 +1,13 @@
-import axios from 'axios';
 import React from 'react';
 import {
-  StyleSheet,
   Text,
   Image,
   View,
-  TouchableOpacity,
+  Pressable,
   FlatList,
 } from 'react-native';
+import axios from 'axios';
+import Style from '../Style'; 
 
 const baseUrl =
   'https://api.weatherbit.io/v2.0/current?lat=62.01&lon=129.69&key=0762872ebe07421e938c0a16cc5e2b59';
@@ -15,9 +15,9 @@ const baseUrl =
 export const Lab2Screen = () => {
   const [result, setResult] = React.useState([]);
   return (
-    <View>
-      <TouchableOpacity
-        style={styles.buttonStyle}
+    <View style={Style.container}>
+      <Pressable
+        style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
         onPress={() => {
           axios
             .get(baseUrl)
@@ -34,9 +34,8 @@ export const Lab2Screen = () => {
             });
         }}>
         <Text>Get Weather Data</Text>
-      </TouchableOpacity>
+      </Pressable>
       <FlatList
-        style={styles.container}
         data={result.data}
         renderItem={({item}) => (
           <View>
@@ -56,21 +55,3 @@ export const Lab2Screen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-  },
-
-  buttonStyle: {
-    alignItems: 'center',
-
-    backgroundColor: '#DDDDDD',
-
-    padding: 10,
-
-    width: '100%',
-
-    marginTop: 16,
-  },
-});

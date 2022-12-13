@@ -15,7 +15,7 @@ export const TabNavigation = () => {
             let iconName;
             if (route.name === 'Main') {
               iconName = focused ? 'ios-home' : 'ios-home-outline';
-            } else if (route.name === 'About app') {
+            } else if (route.name === 'About') {
               iconName = focused
                 ? 'ios-information-circle'
                 : 'ios-information-circle-outline';
@@ -25,13 +25,17 @@ export const TabNavigation = () => {
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
+          headerTitleStyle: {color: '#ff6347'}
         })}>
         <Tab.Screen
-          name="Main"
+          name='Main'
           component={NestedStackHomeNavigation}
           options={{headerShown: false}}
         />
-        <Tab.Screen name="About app" component={AboutScreen} />
+        <Tab.Screen
+          name='About'
+          component={AboutScreen}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
