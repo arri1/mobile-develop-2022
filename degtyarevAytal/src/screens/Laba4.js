@@ -1,16 +1,30 @@
-import {useNavigation} from '@react-navigation/native';
-import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
-import {Container} from '../components/Container';
+import React, {Component} from 'react';
+import {Text, View, Button} from 'react-native';
+import {connect} from 'react-redux';
+import {increaseBurgerAction, decreaseBurgerAction} from '../redux/index';
 
 export const Laba4 = () => {
-  const navigation = useNavigation();
-
   return (
-    <Container showArrow={true}>
-      <TouchableOpacity>
-        <Text>Тут скоро будет лаба 4</Text>
-      </TouchableOpacity>
-    </Container>
+    <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+      <View style={{marginVertical: 50}}>
+        <Text>Number of burger</Text>
+        <Button
+          title="Increase Burger"
+          onPress={() => {
+            increaseBurgerAction;
+          }}
+        />
+      </View>
+      <View style={{marginVertical: 50}}>
+        <Button
+          title="Decrease Burger"
+          onPress={() => {
+            decreaseBurgerAction;
+          }}
+        />
+      </View>
+    </View>
   );
 };
+
+export default Laba4;

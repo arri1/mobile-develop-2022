@@ -7,14 +7,14 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Home} from '../screens/Home';
 import {Notes} from '../screens/Notes';
 import {SvgProfile} from '../assets/svg/SvgProfile';
-import {Laba1} from '../screens/Laba1';
-import {Laba2} from '../screens/Laba2';
 import {SvgScience} from '../assets/svg/SvgScience';
 import {Laba0} from '../screens/Laba0';
+import {Laba1} from '../screens/Laba1';
+import {Laba2} from '../screens/Laba2';
 import {Laba3} from '../screens/Laba3';
 import {Laba4} from '../screens/Laba4';
 import {Laba5} from '../screens/Laba5';
-
+import {Login} from '../screens/Login';
 
 export const Navigator = () => {
   const Stack = createStackNavigator();
@@ -63,7 +63,7 @@ export const Navigator = () => {
       <Stack.Screen name="Laba3" component={Laba3} />
       <Stack.Screen name="Laba4" component={Laba4} />
       <Stack.Screen name="Laba5" component={Laba5} />
-      
+      <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
 };
