@@ -14,7 +14,7 @@ import {Laba2} from '../screens/Laba2';
 import {Laba3} from '../screens/Laba3';
 import {Laba4} from '../screens/Laba4';
 import {Laba5} from '../screens/Laba5';
-
+import {Login} from '../screens/Login';
 
 export const Navigator = () => {
   const Stack = createStackNavigator();
@@ -61,8 +61,9 @@ export const Navigator = () => {
       <Stack.Screen name="Laba1" component={Laba1} />
       <Stack.Screen name="Laba2" component={Laba2} />
       <Stack.Screen name="Laba3" component={Laba3} />
-      <Stack.Screen name='Laba4' component={Laba4} />
+      <Stack.Screen name="Laba4" component={Laba4} />
       <Stack.Screen name="Laba5" component={Laba5} />
+      <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
 };
