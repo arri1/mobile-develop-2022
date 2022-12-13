@@ -1,6 +1,9 @@
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet, Pressable} from 'react-native';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
+  const Logout = () => {
+    navigation.navigate('Login');
+  };
   return (
     <View
       style={{
@@ -17,8 +20,35 @@ const HomeScreen = () => {
         }}>
         HomeScreen
       </Text>
+      <Pressable style={{...styles.button}} onPress={Logout}>
+        <Text style={styles.buttonText}> Logout </Text>
+      </Pressable>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  button: {
+    marginTop: 20,
+    width: 100,
+    height: 41,
+    borderRadius: 14,
+    backgroundColor: '#007EAF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    fontFamily: 'Kulim',
+    fontSize: 20,
+    lineHeight: 21,
+    letterSpacing: 0.25,
+    color: 'white',
+  },
+  text: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    fontFamily: 'Kulim',
+  },
+});
 
 export default HomeScreen;
