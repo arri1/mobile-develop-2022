@@ -1,14 +1,7 @@
 import React from 'react';
 import {Text, View, Pressable, TextInput} from 'react-native';
-import isaac from 'isaac';
 import bcrypt from 'react-native-bcrypt';
 import Style from '../Style';
-
-// Setting RNG
-bcrypt.setRandomFallback(len => {
-  const buf = new Uint8Array(len);
-  return buf.map(() => Math.floor(isaac.random() * 256));
-});
 
 // Setting salt
 let salt = bcrypt.genSaltSync(10);
