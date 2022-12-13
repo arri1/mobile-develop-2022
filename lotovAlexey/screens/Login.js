@@ -3,9 +3,15 @@ import React, {useState} from 'react';
 
 const Login = ({navigation}) => {
   const loginToApp = () => {
-    navigation.navigate('TabStack');
+    if (password.length <= 7) {
+      alert('Password length should be greater that 8');
+    } else if (login.length <= 2) {
+      alert('Login length should be greater that 3');
+    } else {
+      navigation.navigate('TabStack');
+    }
   };
-  const [email, setEmail] = useState('');
+  const [login, setlogin] = useState('');
   const [password, setPassword] = useState('');
   return (
     <View
@@ -20,7 +26,7 @@ const Login = ({navigation}) => {
           style={styles.TextInput}
           placeholder="Login"
           placeholderTextColor="#FFFFFF"
-          onChangeText={email => setEmail(email)}
+          onChangeText={login => setlogin(login)}
         />
       </View>
 

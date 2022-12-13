@@ -29,7 +29,7 @@ const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   button: {
-    marginTop: 10,
+    marginTop: 20,
     width: 100,
     height: 41,
     borderRadius: 14,
