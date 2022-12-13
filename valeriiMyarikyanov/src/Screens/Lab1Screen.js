@@ -1,14 +1,16 @@
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
 import * as React from 'react';
+import Style from '../Style';
 
-var bottom = -300;
-var left = 150;
+let bottom = -300;
+let left = 150;
 
 export const Lab1Screen = () => {
   const [count, setCount] = React.useState(0);
   return (
     <View>
       <TouchableOpacity
+        style={[Style.dontClickButton, {bottom: bottom}, {left: left}]}
         onPress={() => {
           setCount(count + 1);
           switch (count % 4) {
@@ -32,21 +34,9 @@ export const Lab1Screen = () => {
               left = 85;
               break;
           }
-        }}
-        style={[styles.dontClickButton, {bottom: bottom}, {left: left}]}>
-        <Text>Don't Click</Text>
+        }}>
+        <Text>Don't click me</Text>
       </TouchableOpacity>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  dontClickButton: {
-    backgroundColor: '#ff0000',
-    height: 50,
-    width: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative',
-  },
-});

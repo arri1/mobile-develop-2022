@@ -8,11 +8,11 @@ const Stack = createNativeStackNavigator();
 
 export const NestedStackHomeNavigation = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name='Home' component={NestedHomeScreen} />
-      <Stack.Screen name='Laboratory 1' component={Lab1Screen} />
-      <Stack.Screen name='Laboratory 2' component={Lab2Screen} />
-      <Stack.Screen name='Laboratory 3' component={Lab3Screen} />
+    <Stack.Navigator screenOptions={{headerTitleStyle: {color: '#ff6347'}, headerTintColor: '#ff6347'}}>
+      <Stack.Screen name="Home" component={NestedHomeScreen} />
+      <Stack.Screen name="Laboratory 1" component={Lab1Screen} />
+      <Stack.Screen name="Laboratory 2" component={Lab2Screen} />
+      <Stack.Screen name="Laboratory 3" component={Lab3Screen} />
     </Stack.Navigator>
   );
 };

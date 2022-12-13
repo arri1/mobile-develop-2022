@@ -1,20 +1,30 @@
-import {Text, Button, View} from 'react-native';
+import {Text, Pressable, View, ImageBackground} from 'react-native';
+import Style from '../Style';
+
+const image = '../Media/Background.png';
 
 export const NestedHomeScreen = ({navigation}) => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Button
-        title="Laboratory 1"
-        onPress={() => navigation.navigate('Laboratory 1')}
-      />
-      <Button
-        title="Laboratory 2"
-        onPress={() => navigation.navigate('Laboratory 2')}
-      />
-      <Button
-        title="Laboratory 3"
-        onPress={() => navigation.navigate('Laboratory 3')}
-      />
+    <View style={Style.containerWithImageBackground}>
+      <ImageBackground
+        style={Style.imageBackground}
+        source={require(image)}>
+        <Pressable
+          style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
+          onPress={() => navigation.navigate('Laboratory 1')}>
+          <Text>Laboratory 1</Text>
+        </Pressable>
+        <Pressable
+          style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
+          onPress={() => navigation.navigate('Laboratory 2')}>
+          <Text>Laboratory 2</Text>
+        </Pressable>
+        <Pressable
+          style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
+          onPress={() => navigation.navigate('Laboratory 3')}>
+          <Text>Laboratory 3</Text>
+        </Pressable>
+      </ImageBackground>
     </View>
   );
 };
