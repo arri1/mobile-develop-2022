@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { useSelector } from 'react-redux';
 
-export const thirdTaskSolution = () => {
+export const ThirdTaskSolution = () => {
   const {background, tabColor} = useSelector(state => state.colorReducer); 
   console.log("Screen is rendered");
   const [number, setNumber] = useState(1);

@@ -1,53 +1,35 @@
+import { useNavigation } from '@react-navigation/native';
 import React, {useState} from 'react';
 // import type {Node} from 'react';
 import {
-  Button,
   SafeAreaView,
   StyleSheet,
   Text,
   View,
-  TouchableOpacity, Pressable,
+  Pressable,
 } from "react-native";
 import { useSelector } from 'react-redux';
 
-const colors = ['red', 'orange', 'blue', 'yellow', 'black'];
-
-export const FirstTaskSolution = () => {
+export const SplashScreen = () => {
     const {background, tabColor} = useSelector(state => state.colorReducer); 
-    const [count, setCount] = useState(0);
-    const [colorIndex, setColorIndex] = useState(0);
+    const navigation = useNavigation();
     return (
       <SafeAreaView style={{...styles.mainContainer, backgroundColor: background}}>
-        <Text style={styles.red}>{'Counter: ' + count.toString()}</Text>
         <View style={styles.countButton}>
           <Pressable
             style={styles.button}
             onPress={() => {
-              setCount(count + 1);
+              navigation.navigate('LoginScreen');
             }}>
-            <Text style={styles.text}>{'ADD 1'}</Text>
+            <Text style={styles.text}>{'Sign in'}</Text>
           </Pressable>
           <Pressable
             style={styles.button}
             onPress={() => {
-              setCount(count - 1);
+                navigation.navigate('RegisterScreen');
             }}>
-            <Text style={styles.text}>{'SUBSTRACT 1'}</Text>
+            <Text style={styles.text}>{'Sign up'}</Text>
           </Pressable>
-        </View>
-        <TouchableOpacity
-          style={[styles.bar, {backgroundColor: colors[colorIndex]}]}
-          onLongPress={() => {
-            setColorIndex(randomInteger(0, colors.length - 1));
-          }}
-        />
-        <View style={styles.changeColorButton}>
-          <Button
-            title={'change color'}
-            onPress={() => {
-              setColorIndex(randomInteger(0, colors.length - 1));
-            }}
-          />
         </View>
       </SafeAreaView>
     );
@@ -94,8 +76,4 @@ const styles = StyleSheet.create({
       color: 'white',
     },
 });
-  
-function randomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
   

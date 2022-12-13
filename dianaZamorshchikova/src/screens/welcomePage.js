@@ -9,45 +9,31 @@ import {
   TouchableOpacity, Pressable,
 } from "react-native";
 import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 const colors = ['red', 'orange', 'blue', 'yellow', 'black'];
 
-export const FirstTaskSolution = () => {
+export const welcomePage = () => {
+    const navigation = useNavigation();
     const {background, tabColor} = useSelector(state => state.colorReducer); 
-    const [count, setCount] = useState(0);
     const [colorIndex, setColorIndex] = useState(0);
     return (
       <SafeAreaView style={{...styles.mainContainer, backgroundColor: background}}>
-        <Text style={styles.red}>{'Counter: ' + count.toString()}</Text>
         <View style={styles.countButton}>
           <Pressable
             style={styles.button}
             onPress={() => {
-              setCount(count + 1);
+                navigation.navigate('');
             }}>
-            <Text style={styles.text}>{'ADD 1'}</Text>
+            <Text style={styles.text}>{'Sign up'}</Text>
           </Pressable>
           <Pressable
             style={styles.button}
             onPress={() => {
-              setCount(count - 1);
+                navigation.navigate('');
             }}>
-            <Text style={styles.text}>{'SUBSTRACT 1'}</Text>
+            <Text style={styles.text}>{'Sign in'}</Text>
           </Pressable>
-        </View>
-        <TouchableOpacity
-          style={[styles.bar, {backgroundColor: colors[colorIndex]}]}
-          onLongPress={() => {
-            setColorIndex(randomInteger(0, colors.length - 1));
-          }}
-        />
-        <View style={styles.changeColorButton}>
-          <Button
-            title={'change color'}
-            onPress={() => {
-              setColorIndex(randomInteger(0, colors.length - 1));
-            }}
-          />
         </View>
       </SafeAreaView>
     );

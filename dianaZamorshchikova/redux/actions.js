@@ -1,5 +1,6 @@
 export const SET_BG = 'SET_BG';
 export const SET_TAB_COLOR = 'SET_TAB_COLOR';
+export const SET_USERS = 'SET_USERS';
 
 export const setBackground = background => dispatch => {
   dispatch({
@@ -14,3 +15,10 @@ export const setTabColor = tabColor => dispatch => {
     payload: tabColor,
   });
 };
+
+export const setUsers = users => dispatch => {
+  dispatch({
+    type: SET_USERS,
+    payload: users,
+  });
+}
