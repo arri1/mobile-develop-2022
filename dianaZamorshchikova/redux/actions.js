@@ -21,4 +21,4 @@ export const setUsers = users => dispatch => {
     type: SET_USERS,
     payload: users,
   });
-}
+};
