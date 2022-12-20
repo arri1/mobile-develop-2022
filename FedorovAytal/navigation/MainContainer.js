@@ -8,7 +8,7 @@ import Lab2Screen from './screens/Lab2Screen';
 import Lab3Screen from './screens/Lab3Screen';
 
 const lab1Name = 'lab1';
-const lab2Name = 'lab2';
+const lab2Name = 'lab4';
 const lab3Name = 'lab3';
 
 const Tab = createBottomTabNavigator();
@@ -16,39 +16,41 @@ const Tab = createBottomTabNavigator();
 
 export default function MainContainer(){
     return(
-        <NavigationContainer>
-            <Tab.Navigator
-                initialRouteName={lab1Name}
-                screenOptions={({route}) => ({
-                    tabBarIcon: ({focused, color, size}) => {
-                        let iconName;
-                        let rn = route.name;
+            <NavigationContainer>
+                <Tab.Navigator
+                    initialRouteName={lab1Name}
+                    screenOptions={({route}) => ({
+                        tabBarIcon: ({focused, color, size}) => {
+                            let iconName;
+                            let rn = route.name;
 
-                        if (rn === lab1Name, lab2Name, lab3Name) {
-                            iconName = focused ? 'list' : 'list-outline';
-                        }
+                            if (rn === lab1Name, lab2Name, lab3Name) {
+                                iconName = focused ? 'list' : 'list-outline';
+                            }
 
-                        return <Ionicons name={iconName} size={size} color={color}/>
-                    },
-                })}
-                tabBarOptions={{
-                    activeTintColor: 'tomato',
-                    inactiveTintColor: 'grey',
-                    labelStyle: { paddingBottom: 10, fontSize: 10},
-                    style: {padding: 10, height: 70}
-                }}
-                
-                
-                >
-                
-                <Tab.Screen name={lab1Name} component={Lab1Screen}/>
-                <Tab.Screen name={lab2Name} component={Lab2Screen}/>
-                <Tab.Screen name={lab3Name} component={Lab3Screen}/>
+                            return <Ionicons name={iconName} size={size} color={color}/>
+                        },
+                    })}
+                    tabBarOptions={{
+                        activeTintColor: 'tomato',
+                        inactiveTintColor: 'grey',
+                        labelStyle: { paddingBottom: 10, fontSize: 10},
+                        style: {padding: 10, height: 70}
+                    }}
+                    
+                    
+                    >
+                    
+                    <Tab.Screen name={lab1Name} component={Lab1Screen}/>
+                    <Tab.Screen name={lab3Name} component={Lab3Screen}/>
+                    <Tab.Screen name={lab2Name} component={Lab2Screen}/>
+                    
 
 
 
-            </Tab.Navigator>
+                </Tab.Navigator>
 
-        </NavigationContainer>
+            </NavigationContainer>
+        
     );
 }

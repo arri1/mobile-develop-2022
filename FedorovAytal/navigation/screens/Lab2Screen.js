@@ -6,7 +6,7 @@ export default function Lab2Screen({navigation}) {
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text
                 onPress={() => navigation.navigate('lab1')}
-                style={{ fontSize: 26, fontWeight: 'bold' }}>Lab2 Screen</Text>
+                style={{ fontSize: 26, fontWeight: 'bold' }}>Lab4 Screen</Text>
         </View>
     );
 }
