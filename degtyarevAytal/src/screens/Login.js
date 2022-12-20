@@ -1,5 +1,6 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import {StatusBar} from 'expo-status-bar';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,53 +9,60 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
-} from "react-native";
+  ImageBackground,
+} from 'react-native';
 
 export const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigation = useNavigation();
+  const image = '../assets/Login.png';
 
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={require("../assets/Reactp.png")} />
+    <View style={styles.ViewWithImageBackground}>
+      <ImageBackground style={styles.imageBackground} source={require(image)}>
+        <Image style={styles.image} source={require('../assets/Reactp.png')} />
 
-      <StatusBar style="auto" />
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#FFFFFF"
-          onChangeText={(email) => setEmail(email)}
-        />
-      </View>
+        <StatusBar style="auto" />
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Login"
+            placeholderTextColor="#FFFFFF"
+            onChangeText={email => setEmail(email)}
+          />
+        </View>
 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#FFFFFF"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
-        />
-      </View>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Password"
+            placeholderTextColor="#FFFFFF"
+            secureTextEntry={true}
+            onChangeText={password => setPassword(password)}
+          />
+        </View>
 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
-      </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.forgot_button}>Forgot Password?</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.loginBtn}
+          onPress={() => navigation.navigate('Home')}>
+          <Text style={styles.loginText}>LOGIN</Text>
+        </TouchableOpacity>
+      </ImageBackground>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   image: {
@@ -62,13 +70,12 @@ const styles = StyleSheet.create({
   },
 
   inputView: {
-    backgroundColor: "#7653A6",
+    backgroundColor: '#7653A6',
     borderRadius: 30,
-    width: "70%",
+    width: '70%',
     height: 45,
     marginBottom: 20,
-
-    alignItems: "center",
+    alignItems: 'center',
   },
 
   TextInput: {
@@ -86,19 +93,29 @@ const styles = StyleSheet.create({
 
   loginBtn: {
     color: '#FFFFFF',
-    width: "80%",
+    width: '80%',
     borderRadius: 25,
     height: 50,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 40,
-    backgroundColor: "#7653A6",
+    backgroundColor: '#7653A6',
   },
 
   loginText: {
-    color: '#FFFFFF'
-  }
-  
+    color: '#FFFFFF',
+  },
+
+  ViewWithImageBackground: {
+    flex: 1,
+    backgroundColor: '#f2f3f2',
+  },
+  imageBackground: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default Login;

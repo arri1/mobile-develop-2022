@@ -36,6 +36,7 @@ export const Laba2 = () => {
 
   return (
     <Container showArrow={true}>
+      <Text style={styles.text}>Лабараторная 2 (Axios)</Text>
       <View style={styles.container}>
         <FlatList
           data={data}
@@ -47,7 +48,7 @@ export const Laba2 = () => {
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={getDataUsingSimpleGetCall}>
-            <Text style={styles.text}>Нажмите</Text>
+            <Text style={styles.buttontext}>Нажмите</Text>
           </TouchableOpacity>
         )}
         <StatusBar />
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     height: 140,
     borderRadius: 20,
     elevation: 4,
-    backgroundColor: 'green',
+    backgroundColor: '#7653A6',
     shadowColor: 'black',
     shadowOpacity: 0.25,
     shadowOffset: {
@@ -75,11 +76,13 @@ const styles = StyleSheet.create({
   buttonStyle: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
+    backgroundColor: '#7653A6',
     padding: 20,
-    width: '100%',
-    marginTop: 240,
-
+    width: '36%',
+    height: '41%',
+    marginTop: 170,
+    borderRadius: 70,
+    marginLeft: 120,
   },
   innerContainer: {
     flex: 1,
@@ -93,7 +96,15 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 
+  buttontext: {
+    color: 'white',
+    fontSize: 20,
+  },
   text: {
-    color: 'white'
-  }
+    textAlign: 'center',
+    alignItems: 'center',
+    color: '#000000',
+    justifyContent: 'center',
+    fontSize: 24,
+  },
 });

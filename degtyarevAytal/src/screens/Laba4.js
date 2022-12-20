@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text, View, Button} from 'react-native';
 import {connect} from 'react-redux';
 import {increaseBurgerAction, decreaseBurgerAction} from '../redux/index';
+import {Container} from '../components/Container';
 
 export const Laba4 = () => {
   return (
