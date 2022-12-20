@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {useState, useMemo} from 'react';
+import {useSelector} from 'react-redux';
 import {Image,
         View,
         Button,
@@ -14,6 +15,7 @@ export const LabThree = () => {
         'https://images.unsplash.com/photo-1561915573-b78892da34b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
         'https://images.unsplash.com/photo-1590418606746-018840f9cd0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
     ];
+    const reduxCount = useSelector(state => state.counter.value);
     const [count, setCount] = useState(0);
     const [dayTime, setDayTime] = useState(0);
     const expensiveCalculation = (n) => {
@@ -26,9 +28,7 @@ export const LabThree = () => {
     const [imageUri, setImageUri] = useState(timePeriods[0]);
     return (
         <View style = {styles.mainContainer}>
-            <View>
-                <Text>{}</Text>
-            </View>
+            <Text>{reduxCount}</Text>
             <View style = {styles.buttonsBar}>
                 <Button
                     title="Move 6 hours"

@@ -1,59 +1,25 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View,
-        Button,
-        StyleSheet,
-        Text,
-    } from 'react-native';
-import { connect } from 'react-redux';
-import { changeCount } from './actions/counts';
-import { bindActionCreators } from 'redux';
+import {View, Button, StyleSheet, Text} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
+import {decrement, increment} from '../app/counterSlice';
 
-export const Lab4 = () => {
-    const decrementCount = () => {
-        let { count, actions } = this.props;
-        count--;
-        actions.changeCount(count);
-    };
-    const incrementCount = () => {
-        let { count, actions } = this.props;
-        count++;
-        actions.changeCount(count);
-    };
-    const { count } = this.props;
-    return (
-        <View styles={styles.container}>
-            <Button
-            title="increment"
-            onPress={() => incrementCount()}
-            />
-            <Text>{count}</Text>
-            <Button
-            title="decrement"
-            onPress={() => decrementCount()}
-            />
-        </View>
-    );
+export const LabFour = () => {
+  const count = useSelector(state => state.counter.value);
+  const dispatch = useDispatch();
+  return (
+    <View styles={styles.container}>
+      <Button title="increment" onPress={() => dispatch(increment())} />
+      <Text>{count}</Text>
+      <Button title="decrement" onPress={() => dispatch(decrement())} />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  });
-
-const mapStateToProps = state => ({
-    count: state.count,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
-
-const ActionCreators = Object.assign(
-    {},
-    changeCount,
-);
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(ActionCreators, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Lab4);
