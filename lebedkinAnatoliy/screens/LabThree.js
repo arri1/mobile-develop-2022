@@ -26,9 +26,6 @@ export const LabThree = () => {
     const [imageUri, setImageUri] = useState(timePeriods[0]);
     return (
         <View style = {styles.mainContainer}>
-            <View>
-                <Text>{}</Text>
-            </View>
             <View style = {styles.buttonsBar}>
                 <Button
                     title="Move 6 hours"
