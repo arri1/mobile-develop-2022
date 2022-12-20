@@ -25,6 +25,8 @@ export default StyleSheet.create({
     borderBottomWidth: 2,
     borderColor: '#ff6347',
     backgroundColor: '#fffeff',
+    paddingHorizontal: 10,
+    margin: 10,
   },
   button: {
     flex: 1,
