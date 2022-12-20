@@ -1,14 +1,27 @@
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 
 const LabFour = () => {
   const value = useSelector(state => state.test.valueDirection);
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{value}</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>{value}</Text>
     </View>
   );
 };
 
 export default LabFour;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#5CCCCC',
+    height: '100%',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 50,
+  },
+});

@@ -6,20 +6,28 @@ import {LabTwoSvg} from '../assets/svg/LabTwoSvg';
 import {LabOneSvg} from '../assets/svg/LabOneSvg';
 import {LabThreeUseMemo} from '../screens/LabThreeUseMemo';
 import LabFour from '../screens/LabFour';
+import {StyleSheet} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
 export const TabNavigation = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="TabNavigator">
+      <Tab.Navigator
+        initialRouteName="TabNavigator"
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarStyle: {backgroundColor: '#009999'},
+          tabBarActiveBackgroundColor: '#1D7373',
+          headerStyle: {backgroundColor: '#009999'},
+        }}>
         <Tab.Screen
           name="Первая лабораторная работа"
           component={LabOne}
           options={{
             tabBarLabel: 'LAB ONE',
             tabBarIcon: () => (
-              <LabOneSvg height="100%" width="100%" viewBox="0 0 48 48" />
+              <LabOneSvg height="66%" width="66%" viewBox="0 0 48 48" />
             ),
           }}
         />
@@ -37,7 +45,7 @@ export const TabNavigation = () => {
           options={{
             tabBarLabel: 'LAB THREE',
             tabBarIcon: () => (
-              <LabOneSvg height="100%" width="100%" viewBox="0 0 48 48" />
+              <LabOneSvg height="66%" width="66%" viewBox="0 0 48 48" />
             ),
           }}
         />
@@ -45,10 +53,10 @@ export const TabNavigation = () => {
           name="LabFour"
           component={LabFour}
           options={{
-            title: 'Третья лабораторная работа',
-            tabBarLabel: 'LAB THREE',
+            title: 'Четвертая лабораторная работа',
+            tabBarLabel: 'LAB FOUR',
             tabBarIcon: () => (
-              <LabOneSvg height="100%" width="100%" viewBox="0 0 48 48" />
+              <LabOneSvg height="66%" width="66%" viewBox="0 0 48 48" />
             ),
           }}
         />
@@ -56,3 +64,10 @@ export const TabNavigation = () => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#5CCCCC',
+    color: '#5CCCCC',
+  },
+});

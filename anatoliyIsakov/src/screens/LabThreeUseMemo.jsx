@@ -87,6 +87,8 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 20,
+    backgroundColor: '#5CCCCC',
+    height: '100%',
   },
   loading: {
     flex: 1,

@@ -58,7 +58,7 @@ export const LabOne = () => {
 const styles = StyleSheet.create({
   button: {
     elevation: 8,
-    backgroundColor: '#009688',
+    backgroundColor: '#009999',
     borderRadius: 10,
     width: 170,
     height: 50,
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     flexWrap: 'wrap',
+    backgroundColor: '#5CCCCC',
   },
   row: {
     flexDirection: 'row',
