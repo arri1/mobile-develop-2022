@@ -12,7 +12,7 @@ import {
   Button,
 } from 'react-native';
 
-const colors = ['grey', 'green', 'pink', 'blue', 'yellow'];
+const colors = ['#7653A6', 'green', 'pink', 'blue', 'yellow'];
 
 export const Laba0 = () => {
   const navigation = useNavigation();
@@ -21,6 +21,7 @@ export const Laba0 = () => {
   const [colorIndex, setColorIndex] = useState(0);
   return (
     <Container showArrow={true}>
+      <Text style={styles.text}>Лабараторная 0</Text>
     <SafeAreaView style={styles.mainContainer}>
       <TouchableOpacity 
       onPress={() => {
@@ -35,18 +36,25 @@ export const Laba0 = () => {
 
 const styles = StyleSheet.create({
   bar: {
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 0,
+    marginBottom: 0,
     width: 100,
     height: 100,
-    borderRadius: 10,
+    borderRadius: 100,
   },
   mainContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: '93%',
+    height: '85%',
   },
   countButton: {
     marginTop: 0,
   },
+  text: {
+    textAlign: 'center',
+    alignItems: 'center',
+    color: '#000000',
+    justifyContent: 'center',
+    fontSize: 24,
+  }
 });

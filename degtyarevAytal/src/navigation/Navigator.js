@@ -15,10 +15,11 @@ import {Laba3} from '../screens/Laba3';
 import {Laba4} from '../screens/Laba4';
 import {Laba5} from '../screens/Laba5';
 import {Login} from '../screens/Login';
+import {StyleSheet} from 'react-native';
 
 export const Navigator = () => {
-  const Stack = createStackNavigator();
   const Tab = createBottomTabNavigator();
+  const Stack = createStackNavigator();
 
   const TabStack = () => {
     return (
@@ -29,7 +30,7 @@ export const Navigator = () => {
           options={{
             tabBarLabel: 'Главная',
             tabBarIcon: ({focused, color, size}) => (
-              <SvgScience color={focused ? 'blue' : 'grey'} />
+              <SvgScience color={focused ? 'violet' : 'grey'} />
             ),
           }}
         />
@@ -39,7 +40,7 @@ export const Navigator = () => {
           options={{
             tabBarLabel: 'Личный кабинет',
             tabBarIcon: ({focused, color, size}) => (
-              <SvgProfile color={focused ? 'blue' : 'grey'} />
+              <SvgProfile color={focused ? 'violet' : 'grey'} />
             ),
           }}
         />
@@ -53,6 +54,7 @@ export const Navigator = () => {
         headerShown: false,
       }}
       initialRouteName="App">
+      {/* <Stack.Screen name="Login" component={Login} /> */}
       <Stack.Screen name={'Tab'} component={TabStack} />
       <Stack.Screen name="Screen1" component={Screen1} />
       <Stack.Screen name={'Profile'} component={ProfileScreen} />
@@ -63,7 +65,7 @@ export const Navigator = () => {
       <Stack.Screen name="Laba3" component={Laba3} />
       <Stack.Screen name="Laba4" component={Laba4} />
       <Stack.Screen name="Laba5" component={Laba5} />
-      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>
   );
 };
