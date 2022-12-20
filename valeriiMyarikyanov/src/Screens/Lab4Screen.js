@@ -8,7 +8,7 @@ export const Lab4Screen = () => {
 
   return (
     <View style={Style.container}>
-      <Text>Hello, you pressed {counterValue}</Text>
+      <Text>Hello, you pressed THAT BUTTON {counterValue} times</Text>
     </View>
   );
 };
