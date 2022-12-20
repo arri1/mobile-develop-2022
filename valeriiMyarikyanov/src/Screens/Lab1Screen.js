@@ -1,18 +1,22 @@
 import {Text, View, TouchableOpacity} from 'react-native';
 import * as React from 'react';
 import Style from '../Style';
+import { useDispatch, useSelector } from 'react-redux';
+import {increment} from '../Redux/CounterSlice';
 
 let bottom = -300;
 let left = 150;
 
 export const Lab1Screen = () => {
-  const [count, setCount] = React.useState(0);
+  const count = useSelector(state => state.counter.value);
+  const dispatch = useDispatch();
+  
   return (
     <View>
       <TouchableOpacity
         style={[Style.dontClickButton, {bottom: bottom}, {left: left}]}
         onPress={() => {
-          setCount(count + 1);
+          dispatch(increment())
           switch (count % 4) {
             case 0:
               bottom = -650;

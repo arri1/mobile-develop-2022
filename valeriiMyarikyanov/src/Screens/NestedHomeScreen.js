@@ -6,9 +6,7 @@ const image = '../Media/Background.png';
 export const NestedHomeScreen = ({navigation}) => {
   return (
     <View style={Style.containerWithImageBackground}>
-      <ImageBackground
-        style={Style.imageBackground}
-        source={require(image)}>
+      <ImageBackground style={Style.imageBackground} source={require(image)}>
         <Pressable
           style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
           onPress={() => navigation.navigate('Laboratory 1')}>
@@ -23,6 +21,11 @@ export const NestedHomeScreen = ({navigation}) => {
           style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
           onPress={() => navigation.navigate('Laboratory 3')}>
           <Text>Laboratory 3</Text>
+        </Pressable>
+        <Pressable
+          style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
+          onPress={() => navigation.navigate('Laboratory 4')}>
+          <Text>Laboratory 4</Text>
         </Pressable>
       </ImageBackground>
     </View>

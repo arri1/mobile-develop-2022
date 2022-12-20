@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  Text,
-  Image,
-  View,
-  Pressable,
-  FlatList,
-} from 'react-native';
+import {Text, Image, View, Pressable, FlatList} from 'react-native';
 import axios from 'axios';
-import Style from '../Style'; 
+import Style from '../Style';
 
 const baseUrl =
   'https://api.weatherbit.io/v2.0/current?lat=62.01&lon=129.69&key=0762872ebe07421e938c0a16cc5e2b59';
@@ -27,7 +21,9 @@ export const Lab2Screen = () => {
             })
             .catch(error => {
               console.log(error.message);
-              alert('Error, for more information check console');
+              alert(
+                'Error, probably API key expired. For more information check console',
+              );
             })
             .finally(() => {
               console.log('Finally called');

@@ -1,5 +1,6 @@
 import {NestedStackHomeNavigation} from './NestedStackHomeNavigation';
 import {AboutScreen} from '../Screens/AboutScreen';
+import {LoginScreen} from '../Screens/LoginScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -25,17 +26,22 @@ export const TabNavigation = () => {
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
-          headerTitleStyle: {color: '#ff6347'}
+          headerTitleStyle: {color: '#ff6347'},
         })}>
         <Tab.Screen
-          name='Main'
+          name="Login"
+          component={LoginScreen}
+          options={{
+            tabBarStyle: {display: 'none'},
+            tabBarButton: () => null,
+          }}
+        />
+        <Tab.Screen
+          name="Main"
           component={NestedStackHomeNavigation}
           options={{headerShown: false}}
         />
-        <Tab.Screen
-          name='About'
-          component={AboutScreen}
-        />
+        <Tab.Screen name="About" component={AboutScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

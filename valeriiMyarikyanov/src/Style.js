@@ -1,4 +1,3 @@
-import {BottomTabBarHeightCallbackContext} from '@react-navigation/bottom-tabs';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -24,7 +23,10 @@ export default StyleSheet.create({
     maxHeight: 40,
     borderRadius: 8,
     borderBottomWidth: 2,
+    borderColor: '#ff6347',
     backgroundColor: '#fffeff',
+    paddingHorizontal: 10,
+    margin: 10,
   },
   button: {
     flex: 1,
