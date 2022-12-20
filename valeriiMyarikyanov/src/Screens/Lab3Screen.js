@@ -27,9 +27,11 @@ export const Lab3Screen = () => {
   );
   return (
     <View style={Style.container}>
-      <TextInput 
-        style = {Style.textInput}
-      onChangeText={onChangeText} value={text} />
+      <TextInput
+        style={Style.textInput}
+        onChangeText={onChangeText}
+        value={text}
+      />
       <Pressable
         style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
         onPress={() => prepareTextToHash(text)}>

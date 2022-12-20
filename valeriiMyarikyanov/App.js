@@ -1,6 +1,8 @@
 import {TabNavigation} from './src/Navigation/TabNavigation';
 import bcrypt from 'react-native-bcrypt';
 import isaac from 'isaac';
+import store from './src/Redux/Store';
+import {Provider} from 'react-redux';
 
 // Setting RNG
 bcrypt.setRandomFallback(len => {
@@ -9,7 +11,11 @@ bcrypt.setRandomFallback(len => {
 });
 
 const App = () => {
-  return <TabNavigation />;
+  return (
+    <Provider store={store}>
+      <TabNavigation />
+    </Provider>
+  );
 };
 
 export default App;

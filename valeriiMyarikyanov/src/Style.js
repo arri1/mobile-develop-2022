@@ -1,4 +1,3 @@
-import {BottomTabBarHeightCallbackContext} from '@react-navigation/bottom-tabs';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
