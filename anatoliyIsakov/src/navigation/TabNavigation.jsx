@@ -7,6 +7,7 @@ import {LabOneSvg} from '../assets/svg/LabOneSvg';
 import {LabThreeUseMemo} from '../screens/LabThreeUseMemo';
 import LabFour from '../screens/LabFour';
 import {StyleSheet} from 'react-native';
+import Login from '../screens/LoginScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +23,7 @@ export const TabNavigation = () => {
           headerStyle: {backgroundColor: '#009999'},
         }}>
         <Tab.Screen
-          name="Первая лабораторная работа"
+          name="LabOne"
           component={LabOne}
           options={{
             tabBarLabel: 'LAB ONE',
@@ -32,7 +33,7 @@ export const TabNavigation = () => {
           }}
         />
         <Tab.Screen
-          name="Вторая лабораторная работа"
+          name="LabTwoTab"
           component={StackNavigation}
           options={{
             tabBarLabel: 'LAB TWO',
@@ -40,12 +41,12 @@ export const TabNavigation = () => {
           }}
         />
         <Tab.Screen
-          name="Третья лабораторная работа"
+          name="LabThree"
           component={LabThreeUseMemo}
           options={{
             tabBarLabel: 'LAB THREE',
             tabBarIcon: () => (
-              <LabOneSvg height="66%" width="66%" viewBox="0 0 48 48" />
+              <LabTwoSvg />
             ),
           }}
         />
@@ -53,8 +54,17 @@ export const TabNavigation = () => {
           name="LabFour"
           component={LabFour}
           options={{
-            title: 'Четвертая лабораторная работа',
             tabBarLabel: 'LAB FOUR',
+            tabBarIcon: () => (
+              <LabOneSvg height="66%" width="66%" viewBox="0 0 48 48" />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="LoginScreen"
+          component={Login}
+          options={{
+            tabBarLabel: 'LOGIN',
             tabBarIcon: () => (
               <LabOneSvg height="66%" width="66%" viewBox="0 0 48 48" />
             ),
