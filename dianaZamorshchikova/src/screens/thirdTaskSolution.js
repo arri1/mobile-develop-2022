@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     padding: 16,
     textAlign: 'center',
     fontSize: 21,
+    borderRadius: 8,
   },
   button: {
     marginTop: 13,
@@ -72,8 +73,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 15,
     paddingHorizontal: 50,
-    borderRadius: 4,
-    elevation: 3,
+    borderRadius: 16,
+    elevation: 10,
     backgroundColor: '#E2F4FF',
   },
   text: {

@@ -32,7 +32,7 @@ const Tab = () => {
           tabBarIcon: ({focused}) => (
             <View style={styles.ViewTabBarIcon}>
               <Image
-                source={require('./src/drawable/icon.png')}
+                source={require('./src/drawable/counter.png')}
                 resizeMode="contain"
                 style={{
                   tintColor: focused ? tabColor : 'gray',
@@ -56,7 +56,7 @@ const Tab = () => {
           tabBarIcon: ({focused}) => (
             <View style={styles.ViewTabBarIcon}>
               <Image
-                source={require('./src/drawable/icon.png')}
+                source={require('./src/drawable/newspaper-folded.png')}
                 resizeMode="contain"
                 style={{
                   tintColor: focused ? tabColor : 'gray',
@@ -80,7 +80,7 @@ const Tab = () => {
           tabBarIcon: ({focused}) => (
             <View style={styles.ViewTabBarIcon}>
               <Image
-                source={require('./src/drawable/icon.png')}
+                source={require('./src/drawable/writing.png')}
                 resizeMode="contain"
                 style={{
                   tintColor: focused ? tabColor : 'gray',
@@ -104,7 +104,7 @@ const Tab = () => {
           tabBarIcon: ({focused}) => (
             <View style={styles.ViewTabBarIcon}>
               <Image
-                source={require('./src/drawable/icon.png')}
+                source={require('./src/drawable/shop.png')}
                 resizeMode="contain"
                 style={{
                   tintColor: focused ? tabColor : 'gray',
