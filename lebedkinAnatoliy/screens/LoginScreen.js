@@ -5,18 +5,14 @@ import {
   View,
   Text,
   ScrollView,
-  Image,
   Keyboard,
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
 
-import Loader from './Components/Loader';
-
 const LoginScreen = ({navigation}) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState('');
 
   const passwordInputRef = createRef();
@@ -31,42 +27,10 @@ const LoginScreen = ({navigation}) => {
       alert('Please fill Password');
       return;
     }
-    setLoading(true);
-    let dataToSend = {email: userEmail, password: userPassword};
-    let formBody = [];
-    for (let key in dataToSend) {
-      let encodedKey = encodeURIComponent(key);
-      let encodedValue = encodeURIComponent(dataToSend[key]);
-      formBody.push(encodedKey + '=' + encodedValue);
-    }
-    formBody = formBody.join('&');
-
-    fetch('http://localhost:3000/api/user/login', {
-      method: 'POST',
-      body: formBody,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-      },
-    })
-      .then(response => response.json())
-      .then(responseJson => {
-        setLoading(false);
-        console.log(responseJson);
-        if (responseJson.status === 'success') {
-          navigation.replace('DrawerNavigationRoutes');
-        } else {
-          setErrortext(responseJson.msg);
-        }
-      })
-      .catch(error => {
-        setLoading(false);
-        console.error(error);
-      });
   };
 
   return (
     <View style={styles.mainBody}>
-      <Loader loading={loading} />
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -76,17 +40,6 @@ const LoginScreen = ({navigation}) => {
         }}>
         <View>
           <KeyboardAvoidingView enabled>
-            <View style={{alignItems: 'center'}}>
-              <Image
-                source={require('../Image/aboutreact.png')}
-                style={{
-                  width: '50%',
-                  height: 100,
-                  resizeMode: 'contain',
-                  margin: 30,
-                }}
-              />
-            </View>
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
