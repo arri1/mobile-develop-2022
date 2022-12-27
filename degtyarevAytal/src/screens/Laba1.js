@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     justifyContent: 'center',
     fontSize: 24,
+    paddingTop: 20,
   },
   lab1: {
     paddingTop: 80,

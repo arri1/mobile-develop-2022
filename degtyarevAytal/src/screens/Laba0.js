@@ -20,16 +20,16 @@ export const Laba0 = () => {
   const [count, setCount] = useState(0);
   const [colorIndex, setColorIndex] = useState(0);
   return (
-    <Container showArrow={true}>
+    <Container>
       <Text style={styles.text}>Лабараторная 0</Text>
-    <SafeAreaView style={styles.mainContainer}>
-      <TouchableOpacity 
-      onPress={() => {
-          setColorIndex(((colorIndex + 1) % colors.length));
-        }} 
-        style={[styles.bar, {backgroundColor: colors[colorIndex]}]}  />
-
-    </SafeAreaView>
+      <SafeAreaView style={styles.mainContainer}>
+        <TouchableOpacity
+          onPress={() => {
+            setColorIndex((colorIndex + 1) % colors.length);
+          }}
+          style={[styles.bar, {backgroundColor: colors[colorIndex]}]}
+        />
+      </SafeAreaView>
     </Container>
   );
 };
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   bar: {
     marginTop: 0,
     marginBottom: 0,
-    width: 100,
+    width: 105,
     height: 100,
     borderRadius: 100,
   },
@@ -56,5 +56,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     justifyContent: 'center',
     fontSize: 24,
-  }
+    paddingTop: 20,
+  },
 });

@@ -7,31 +7,35 @@ import {
   ImageBackground,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {Container} from '../components/Container';
 
 export const Home = () => {
   const navigation = useNavigation();
   const image = '../assets/Home.png';
 
   return (
-    <View style={styles.home} source={require(image)}>
-      <View style={styles.container} showArrow={false}>
-        <TouchableOpacity
-          style={styles.sections}
-          onPress={() => navigation.navigate('Screen1')}>
-          <Text style={styles.sections}>Лабараторные</Text>
-        </TouchableOpacity>
-        <Text style={styles.sections}>Разное</Text>
-        <Text style={styles.sections}>Разное</Text>
-        <Text style={styles.sections}>Разное</Text>
-      </View>
+    <View style={styles.ViewWithImageBackground}>
+      <ImageBackground style={styles.ImageBackground} source={require(image)}>
+        <View style={styles.main}>
+          <Text style={styles.text}>Главная</Text>
+          <View style={styles.home}>
+            <View style={styles.container}>
+              <TouchableOpacity onPress={() => navigation.navigate('Screen1')}>
+                <Text style={styles.sections}>Лабараторные</Text>
+              </TouchableOpacity>
+              <Text style={styles.sections}>Разное</Text>
+              <Text style={styles.sections}>Разное</Text>
+              <Text style={styles.sections}>Разное</Text>
+            </View>
 
-      <View style={styles.container}>
-        <Text style={styles.sections}>Разное</Text>
-        <Text style={styles.sections}>Разное</Text>
-        <Text style={styles.sections}>Разное</Text>
-        <Text style={styles.sections}>Разное</Text>
-      </View>
+            <View style={styles.container}>
+              <Text style={styles.sections}>Разное</Text>
+              <Text style={styles.sections}>Разное</Text>
+              <Text style={styles.sections}>Разное</Text>
+              <Text style={styles.sections}>Разное</Text>
+            </View>
+          </View>
+        </View>
+      </ImageBackground>
     </View>
   );
 };
@@ -39,7 +43,6 @@ export const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
@@ -53,11 +56,38 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#FFFFFF',
     textAlignVertical: 'center',
-    borderColor: '#0000',
+    borderColor: '#000000',
+    borderWidth: 1,
   },
 
   home: {
     flex: 1,
     flexDirection: 'row',
+    paddingBottom: 70,
+  },
+
+  main: {
+    flex: 1,
+    paddingTop: 100,
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+
+  text: {
+    fontSize: 24,
+    fontFamily: 'Roboto Slab',
+    color: '#000000',
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+
+  ImageBackground: {
+    flex: 1,
+  },
+
+  ViewWithImageBackground: {
+    flex: 1,
   },
 });
+
+export default Home;

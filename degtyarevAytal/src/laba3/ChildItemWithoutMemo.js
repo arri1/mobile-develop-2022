@@ -6,7 +6,7 @@ const ChildItemWithoutMemo = (props) => {
     console.log('Rendering Child Item')
     return(
         <View>
-            <Button title="Child Button" onPress={props.onClick}/>
+            <Button title="Child Button" onPress={props.onClick} color='#7653A6'/>
             <Text>Child rendered {renderCount.current++} times</Text>
             <Text>{props.title}</Text>
         </View>

@@ -12,7 +12,7 @@ export const ProfileScreen = () => {
   };
 
   return (
-    <Container showArrow={true}>
+    <Container>
       <TouchableOpacity>
         <Text>Лаба2</Text>
       </TouchableOpacity>
