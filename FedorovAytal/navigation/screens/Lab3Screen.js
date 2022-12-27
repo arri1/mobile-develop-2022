@@ -1,28 +1,39 @@
 import * as React from 'react';
-import {Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {Text, View, TextInput, TouchableOpacity, Switch} from 'react-native';
 
-const Lab3Screen = ({navigation}) => {
-    const [number, setNumber] = React.useState(1);
-    const [inc, setInc] = React.useState(0);
-    const factorial = React.useMemo(() => factorialOf(Number(number)), [number]);
-    //const factorial = factorialOf(Number(number));
-    const onClick = () => setInc(inc + 1);
-  
+
+export default function Lab3Screen() {
+	const [number, setNumber] = React.useState(1);
+	const [number2, setNumber2] = React.useState(1);
+	const [inc, setInc] = React.useState(0);
+	const [isActive, setIsActive] = React.useState(true);
+	const factorial = React.useMemo(() => factorialOf(Number(number)), [number]);
+
     return(
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Factorial of</Text>
-            <TextInput type="number" value={number} onChangeText={setNumber} />
-            <Text>is {factorial}</Text>
-            <TouchableOpacity onPress={onClick}><Text>Re-render</Text></TouchableOpacity>
+            <TextInput type="number" value={number2} onChangeText={setNumber2} />
+            <Text>is {isActive ? factorial : factorialOf(Number(number2))}</Text>
+            <TouchableOpacity onPress={
+				() => {
+					setInc(prevState => prevState + 1)
+					isActive ? setNumber(number2) : null;
+				}
+			}><Text>Re-render</Text></TouchableOpacity>
+			<Switch
+				onValueChange={() => {
+					setIsActive(prevState => !prevState);
+				}}
+				value={isActive}
+			/>
+			
             <Text>is {inc}</Text>
         </View>
         
     );
 }
-
 const factorialOf = (n) => {
-    console.log('factorialOf('+n+') called!');
-    return n <= 0 ? 1 : n * factorialOf(n - 1);
+	console.log('factorialOf('+n+') called!')
+	return n <= 0 ? 1 : n * factorialOf(n - 1);
 }
-
-export default Lab3Screen;
+  
