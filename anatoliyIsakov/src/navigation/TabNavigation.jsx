@@ -6,7 +6,7 @@ import {LabTwoSvg} from '../assets/svg/LabTwoSvg';
 import {LabOneSvg} from '../assets/svg/LabOneSvg';
 import {LabThreeUseMemo} from '../screens/LabThreeUseMemo';
 import LabFour from '../screens/LabFour';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
 import Login from '../screens/LoginScreen';
 
 const Tab = createBottomTabNavigator();
@@ -46,7 +46,10 @@ export const TabNavigation = () => {
           options={{
             tabBarLabel: 'LAB THREE',
             tabBarIcon: () => (
-              <LabTwoSvg />
+              <Image
+                style={styles.tinyLogo}
+                source={require('../assets/png/LabThreeIcon.png')}
+              />
             ),
           }}
         />
@@ -56,7 +59,10 @@ export const TabNavigation = () => {
           options={{
             tabBarLabel: 'LAB FOUR',
             tabBarIcon: () => (
-              <LabOneSvg height="66%" width="66%" viewBox="0 0 48 48" />
+              <Image
+                style={styles.tinyLogo}
+                source={require('../assets/png/LabFourIcon.png')}
+              />
             ),
           }}
         />
@@ -66,7 +72,10 @@ export const TabNavigation = () => {
           options={{
             tabBarLabel: 'LOGIN',
             tabBarIcon: () => (
-              <LabOneSvg height="66%" width="66%" viewBox="0 0 48 48" />
+              <Image
+                style={styles.tinyLogo}
+                source={require('../assets/png/LoginIcon.png')}
+              />
             ),
           }}
         />
@@ -79,5 +88,9 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#5CCCCC',
     color: '#5CCCCC',
+  },
+  tinyLogo: {
+    width: 24,
+    height: 24,
   },
 });
