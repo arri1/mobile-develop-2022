@@ -15,13 +15,24 @@ const MainNavigation = () => {
 
   const TabScreen = () => {
     return (
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarStyle: {
+            backgroundColor: '#404040',
+            height: 60,
+          },
+          tabBarItemStyle: {
+            backgroundColor: '#8E8DBD',
+            borderRadius: 10,
+            margin: 10,
+          },
+        }}>
         <Tab.Screen
           name="Lab1"
           component={LabOne}
           options={{
             tabBarIcon: () => {
-              return <Icon name="th" size={20} color="#009" />;
+              return <Icon name="th" size={20} color="#000" />;
             },
           }}
         />
@@ -30,7 +41,7 @@ const MainNavigation = () => {
           component={LabTwo}
           options={{
             tabBarIcon: () => {
-              return <Icon name="list" size={20} color="#009" />;
+              return <Icon name="list" size={20} color="#000" />;
             },
           }}
         />
@@ -39,7 +50,7 @@ const MainNavigation = () => {
           component={LabThree}
           options={{
             tabBarIcon: () => {
-              return <Icon name="clock-o" size={20} color="#009" />;
+              return <Icon name="clock-o" size={20} color="#000" />;
             },
           }}
         />
@@ -48,7 +59,7 @@ const MainNavigation = () => {
           component={LabFour}
           options={{
             tabBarIcon: () => {
-              return <Icon name="clock-o" size={20} color="#009" />;
+              return <Icon name="plus" size={20} color="#000" />;
             },
           }}
         />
