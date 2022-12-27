@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Text, View, Button, StyleSheet} from 'react-native';
-import {increaseBurgerAction, decreaseBurgerAction} from '../redux/index';
 import {useDispatch, useSelector} from 'react-redux';
 import {increment, decrement} from '../redux/CounterSlice';
 
