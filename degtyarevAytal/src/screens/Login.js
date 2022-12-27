@@ -27,7 +27,7 @@ export const Login = () => {
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
-            placeholder="Login"
+            placeholder="Логин"
             placeholderTextColor="#FFFFFF"
             onChangeText={email => setEmail(email)}
           />
@@ -36,7 +36,7 @@ export const Login = () => {
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
-            placeholder="Password"
+            placeholder="Пароль"
             placeholderTextColor="#FFFFFF"
             secureTextEntry={true}
             onChangeText={password => setPassword(password)}
@@ -44,13 +44,15 @@ export const Login = () => {
         </View>
 
         <TouchableOpacity>
-          <Text style={styles.forgot_button}>Forgot Password?</Text>
+          <Text style={styles.forgot_button}>
+            Хочешь узнать свой пароль? 500 рублей
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.loginBtn}
           onPress={() => navigation.navigate('Tab')}>
-          <Text style={styles.loginText}>LOGIN</Text>
+          <Text style={styles.loginText}>Войти</Text>
         </TouchableOpacity>
       </ImageBackground>
     </View>
@@ -76,6 +78,8 @@ const styles = StyleSheet.create({
     height: 45,
     marginBottom: 20,
     alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
 
   TextInput: {
@@ -93,7 +97,7 @@ const styles = StyleSheet.create({
 
   loginBtn: {
     color: '#FFFFFF',
-    width: '80%',
+    width: '70%',
     borderRadius: 25,
     height: 50,
     alignItems: 'center',

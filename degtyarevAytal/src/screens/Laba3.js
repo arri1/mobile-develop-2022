@@ -27,7 +27,10 @@ export const Laba3 = () => {
 
   return (
     <View style={styles.mainContainer}>
-      <Button title="Parent Button" onPress={onParentStateHandler} />
+      <View style={styles.textbox}>
+        <Text style={styles.text}>Лабараторная 3 (UseMemo)</Text>
+      </View>
+      <Button title="Parent Button" onPress={onParentStateHandler} color='#7653A6' />
       <Text>I am from Parent. Click {clicks} times</Text>
       <Text>Click from child {childClicks} times</Text>
       <ChildItem title="I am Child A" />
@@ -40,11 +43,22 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 250,
+    paddingTop: 50,
   },
   button: {
     height: 50,
     width: '90%',
-    marginTop: 20,
   },
+
+  text: {
+    textAlign: 'center',
+    alignItems: 'center',
+    color: '#000000',
+    justifyContent: 'center',
+    fontSize: 24,
+  },
+
+  textbox: {
+    paddingBottom: 180,
+  }
 });

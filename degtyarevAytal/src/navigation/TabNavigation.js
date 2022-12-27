@@ -4,6 +4,7 @@ import {Navigator} from './Navigator';
 import {Notes} from '../screens/Notes';
 import {SvgProfile} from '../assets/svg/SvgProfile';
 import {SvgScience} from '../assets/svg/SvgScience';
+import {SvgProps} from 'react-native-svg';
 
 const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
@@ -11,6 +12,15 @@ const TabNavigation = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarStyle: {
+          height: 60,
+        },
+        tabBarActiveTintColor: '#7653A6',
+        tabBarInactiveTintColor: '#000000',
+        tabBarLabelStyle: {
+          fontSize: 13,
+          paddingBottom: 5,
+        },
       }}>
       <Tab.Screen
         name="Главная"
@@ -18,7 +28,7 @@ const TabNavigation = () => {
         options={{
           tabBarLabel: 'Главная',
           tabBarIcon: ({focused, color, size}) => (
-            <SvgScience color={focused ? 'violet' : 'grey'} />
+            <SvgScience color={focused ? '#7653A6' : '#000000'} />
           ),
         }}
       />
@@ -28,7 +38,7 @@ const TabNavigation = () => {
         options={{
           tabBarLabel: 'Личный кабинет',
           tabBarIcon: ({focused, color, size}) => (
-            <SvgProfile color={focused ? 'violet' : 'grey'} />
+            <SvgProfile color={focused ? '#7653A6' : '#000000'} />
           ),
         }}
       />

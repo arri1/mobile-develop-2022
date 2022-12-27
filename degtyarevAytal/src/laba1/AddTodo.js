@@ -23,7 +23,7 @@ export const AddTodo = ({ onSubmit }) => {
         autoCorrect= {false}
         autoCapitalize='words'
       />
-      <Button title = "Добавить"  onPress={pressHandler} />
+      <Button title = "Добавить"  onPress={pressHandler} color='#7653A6' />
     </View>
   );
 };

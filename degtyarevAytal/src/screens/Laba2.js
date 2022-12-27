@@ -36,7 +36,7 @@ export const Laba2 = () => {
 
   return (
     <Container showArrow={true}>
-      <Text style={styles.text}>Лабараторная 2 (Axios)</Text>
+      <Text style={styles.text}>Лабараторная 2 &shy;(Axios)</Text>
       <View style={styles.container}>
         <FlatList
           data={data}
@@ -106,5 +106,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     justifyContent: 'center',
     fontSize: 24,
+    paddingTop: 20,
   },
 });

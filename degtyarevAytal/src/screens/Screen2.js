@@ -20,7 +20,7 @@ export const Screen2 = () => {
     container: {
       flex: 1,
       flexDirection: 'column',
-      backgroundColor: '#000',
+      backgroundColor: '#7653A6',
       alignItems: 'center',
       justifyContent: 'center',
     },
