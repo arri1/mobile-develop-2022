@@ -31,7 +31,10 @@ const MainNavigation = () => {
           component={LabOne}
           options={{
             tabBarIcon: () => {
-              return <Icon name="th" size={20} color="#000" />;
+              return <Icon name="th" size={30} color="#000" />;
+            },
+            tabBarLabel: () => {
+              return null;
             },
           }}
         />
@@ -40,7 +43,10 @@ const MainNavigation = () => {
           component={LabTwo}
           options={{
             tabBarIcon: () => {
-              return <Icon name="list" size={20} color="#000" />;
+              return <Icon name="list" size={30} color="#000" />;
+            },
+            tabBarLabel: () => {
+              return null;
             },
           }}
         />
@@ -49,7 +55,10 @@ const MainNavigation = () => {
           component={LabThree}
           options={{
             tabBarIcon: () => {
-              return <Icon name="clock-o" size={20} color="#000" />;
+              return <Icon name="clock-o" size={30} color="#000" />;
+            },
+            tabBarLabel: () => {
+              return null;
             },
           }}
         />

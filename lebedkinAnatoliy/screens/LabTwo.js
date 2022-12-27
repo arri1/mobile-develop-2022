@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
   name: {
     position: 'absolute',
     top: 10,
-    left: 140,
+    left: 145,
   },
   email: {
     position: 'absolute',
     top: 30,
-    left: 140,
+    left: 145,
   },
 });
