@@ -1,39 +1,56 @@
-import * as React from 'react';
-import {Text, View, TextInput, TouchableOpacity, Switch} from 'react-native';
+import React, {
+	useState, 
+	useMemo
+} from 'react';
+import { 
+	Text,
+	View, 
+	TextInput, 
+	TouchableOpacity, 
+	Switch 
+} from 'react-native';
 
 
-export default function Lab3Screen() {
-	const [number, setNumber] = React.useState(1);
-	const [number2, setNumber2] = React.useState(1);
-	const [inc, setInc] = React.useState(0);
-	const [isActive, setIsActive] = React.useState(true);
-	const factorial = React.useMemo(() => factorialOf(Number(number)), [number]);
+const Lab3Screen = () => {
+	const [text, setText] = useState('')
+
+	const factorialOf = (n) => {
+		setText(prevState => prevState + 'factorialOf('+n.toString()+') called!\n');
+		return n <= 0 ? 1 : n * factorialOf(n - 1);
+	}
+	  
+	const [number, setNumber] = useState(1);
+	const [number2, setNumber2] = useState(1);
+	const [ans, setAns] = useState(1);
+	const [inc, setInc] = useState(0);
+	const [isActive, setIsActive] = useState(true);
+
+	const factorial = useMemo(() => factorialOf(Number(number)), [number]);
 
     return(
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Factorial of</Text>
             <TextInput type="number" value={number2} onChangeText={setNumber2} />
-            <Text>is {isActive ? factorial : factorialOf(Number(number2))}</Text>
+            <Text>is {isActive ? factorial : ans}</Text>
             <TouchableOpacity onPress={
 				() => {
 					setInc(prevState => prevState + 1)
-					isActive ? setNumber(number2) : null;
+					setNumber(number2)
+					!isActive ? setAns(factorialOf(number2)) : null;
 				}
 			}><Text>Re-render</Text></TouchableOpacity>
 			<Switch
 				onValueChange={() => {
 					setIsActive(prevState => !prevState);
+					setNumber(1)
+					setText('')
 				}}
 				value={isActive}
 			/>
-			
             <Text>is {inc}</Text>
+            <Text>{text}</Text>
         </View>
-        
-    );
+	);
 }
-const factorialOf = (n) => {
-	console.log('factorialOf('+n+') called!')
-	return n <= 0 ? 1 : n * factorialOf(n - 1);
-}
-  
+
+export default Lab3Screen;
