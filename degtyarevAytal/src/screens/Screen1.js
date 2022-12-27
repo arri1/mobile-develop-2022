@@ -7,7 +7,6 @@ import {
   StyleSheet,
   ImageBackground,
 } from 'react-native';
-import {Container} from '../components/Container';
 
 export const Screen1 = () => {
   const navigation = useNavigation();

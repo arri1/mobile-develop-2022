@@ -12,13 +12,9 @@ export const Container = props => {
   const navigation = useNavigation();
 
   return (
-    <View >
+    <View>
       <View style={{padding: 12, marginleft: 14}}>
-        {/* {showArrow && (
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <SvgBack color/>
-          </TouchableOpacity>
-        )} */}
+        {}
       </View>
       <View>
         <View style={{paddingHorizontal: 16}}>{children}</View>

@@ -7,7 +7,6 @@ import {
   ImageBackground,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {Container} from '../components/Container';
 
 export const Notes = () => {
   const navigation = useNavigation();

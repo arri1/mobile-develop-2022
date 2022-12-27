@@ -2,7 +2,6 @@ import React, {useState, useCallback, useMemo} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import ChildItem from '../laba3/ChildItem';
 // import ChildItem from '../laba3/ChildItemWithoutMemo';
-import {Container} from '../components/Container';
 
 export const Laba3 = () => {
   const [clicks, setClicks] = useState(0);
@@ -30,7 +29,11 @@ export const Laba3 = () => {
       <View style={styles.textbox}>
         <Text style={styles.text}>Лабараторная 3 (UseMemo)</Text>
       </View>
-      <Button title="Parent Button" onPress={onParentStateHandler} color='#7653A6' />
+      <Button
+        title="Parent Button"
+        onPress={onParentStateHandler}
+        color="#7653A6"
+      />
       <Text>I am from Parent. Click {clicks} times</Text>
       <Text>Click from child {childClicks} times</Text>
       <ChildItem title="I am Child A" />
@@ -60,5 +63,5 @@ const styles = StyleSheet.create({
 
   textbox: {
     paddingBottom: 180,
-  }
+  },
 });

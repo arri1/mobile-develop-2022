@@ -27,7 +27,7 @@ export const Laba1 = () => {
     <Container showArrow={true}>
       <Text style={styles.text}>Лабараторная 1</Text>
       <View style={styles.lab1}>
-        <Navbar title="Todo App"/>
+        <Navbar title="Todo App" />
         <View style={styles.container}>
           <AddTodo onSubmit={addTodo} />
 
