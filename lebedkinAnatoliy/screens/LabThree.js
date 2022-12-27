@@ -2,10 +2,10 @@
 import React, {useState, useMemo} from 'react';
 import {Image,
         View,
-        Button,
         StyleSheet,
         Text,
     } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export const LabThree = () => {
     const timePeriods = [
@@ -27,8 +27,8 @@ export const LabThree = () => {
     return (
         <View style = {styles.mainContainer}>
             <View style = {styles.button}>
-                <Button
-                    title="Move 6 hours"
+                <TouchableOpacity
+                    style={styles.button}
                     onPress = {() => {
                         if (dayTime === 0) {
                             setCount(count + 1);
@@ -67,8 +67,11 @@ const styles = StyleSheet.create({
     },
     button: {
         position: 'absolute',
-        top: 400,
-        left: 50,
+        top: 420,
+        left: 60,
+        width: 100,
+        height: 20,
+        backgroundColor: 'red',
     },
     mainContainer: {
         height: '100%',
