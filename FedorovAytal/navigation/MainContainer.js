@@ -1,22 +1,23 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import {createStackNavigator} from '@react-navigation/stack';
 
 import Lab1Screen from './screens/Lab1Screen';
 import Lab2Screen from './screens/Lab2Screen';
 import Lab3Screen from './screens/Lab3Screen';
+import Login from './screens/Login';
 
 const lab1Name = 'lab1';
 const lab2Name = 'lab4';
 const lab3Name = 'lab3';
 
-const Tab = createBottomTabNavigator();
-
-
-export default function MainContainer(){
+const MainContainer = () => {
+    const Tab = createBottomTabNavigator();
+    const Stack = createStackNavigator();
+    const TabStack = () => {
     return(
-            <NavigationContainer>
+        
                 <Tab.Navigator
                     initialRouteName={lab1Name}
                     screenOptions={({route}) => ({
@@ -36,21 +37,38 @@ export default function MainContainer(){
                         inactiveTintColor: 'grey',
                         labelStyle: { paddingBottom: 10, fontSize: 10},
                         style: {padding: 10, height: 70}
-                    }}
-                    
-                    
-                    >
-                    
+                    }}>
                     <Tab.Screen name={lab1Name} component={Lab1Screen}/>
                     <Tab.Screen name={lab3Name} component={Lab3Screen}/>
                     <Tab.Screen name={lab2Name} component={Lab2Screen}/>
-                    
-
-
 
                 </Tab.Navigator>
-
-            </NavigationContainer>
         
     );
-}
+};
+return (
+    <Stack.Navigator
+      screenOptions={{
+        tabBarShowLabel: false,
+        headerShown: false,
+      }}
+      initialRouteName="App">
+      <Stack.Screen name="Login" component={Login} options={{title: 'Login'}} />
+      <Stack.Screen
+        name="lab1Name"
+        component={Lab1Screen}
+        options={{title: 'lab1Name'}}
+      />
+      <Stack.Screen
+        name="TabStack"
+        component={TabStack}
+        options={{title: 'TabStack'}}
+      />
+
+      <Stack.Screen name="lab3Name" component={Lab3Screen} options={{title: 'Lab3'}} />
+      <Stack.Screen name="lab2Name" component={Lab2Screen} options={{title: 'Lab2'}} />
+    </Stack.Navigator>
+  );
+};
+
+export default MainContainer;

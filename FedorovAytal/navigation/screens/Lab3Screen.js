@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {Text, View, TextInput, TouchableOpacity} from 'react-native';
 
-
-export default function Lab3Screen({navigation}) {
+const Lab3Screen = ({navigation}) => {
     const [number, setNumber] = React.useState(1);
     const [inc, setInc] = React.useState(0);
     const factorial = React.useMemo(() => factorialOf(Number(number)), [number]);
@@ -21,7 +20,9 @@ export default function Lab3Screen({navigation}) {
     );
 }
 
-function factorialOf(n) {
+const factorialOf = (n) => {
     console.log('factorialOf('+n+') called!');
     return n <= 0 ? 1 : n * factorialOf(n - 1);
-  }
+}
+
+export default Lab3Screen;
