@@ -14,7 +14,7 @@ const lab3Name = 'lab3';
 const Tab = createBottomTabNavigator();
 
 
-export default function MainContainer(){
+const MainContainer = () => {
     return(
         <NavigationContainer>
             <Tab.Navigator
@@ -52,3 +52,5 @@ export default function MainContainer(){
         </NavigationContainer>
     );
 }
+
+export default MainContainer;

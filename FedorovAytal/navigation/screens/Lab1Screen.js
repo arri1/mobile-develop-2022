@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
-export default function Lab1Screen({navigation}) {
+const Lab1Screen = ({navigation}) => {
   const [fontSize, setFontSize] = React.useState(24);
   return (
     <View style={styles.container}>
@@ -44,3 +44,5 @@ const styles = StyleSheet.create({
     }
   
   });
+  
+  export default Lab1Screen;
