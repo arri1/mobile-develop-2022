@@ -40,7 +40,7 @@ const Lab2 = () => {
   return (
     <View
       style={{
-        backgroundColor: '#8CE585',
+        backgroundColor: '#243763',
         width: '100%',
         height: '100%',
         alignItems: 'center',
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 14,
     elevation: 4,
-    backgroundColor: '#007EAF',
+    backgroundColor: '#FF6E31',
     shadowColor: 'black',
     shadowOpacity: 0.25,
     shadowOffset: {
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     width: 351,
     height: 41,
     borderRadius: 14,
-    backgroundColor: '#007EAF',
+    backgroundColor: '#FF6E31',
     alignItems: 'center',
     justifyContent: 'center',
   },

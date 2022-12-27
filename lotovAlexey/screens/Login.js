@@ -18,7 +18,7 @@ const Login = ({navigation}) => {
       style={{
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#8CE585',
+        backgroundColor: '#243763',
         justifyContent: 'center',
       }}>
       <View style={styles.inputView}>
@@ -55,9 +55,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 10,
     fontFamily: 'Kulim',
+    color: '#FFEBB7',
   },
   inputView: {
-    backgroundColor: '#00A5B7',
+    backgroundColor: '#FF6E31',
     borderRadius: 14,
     width: '70%',
     height: 45,
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
     width: 351,
     height: 41,
     borderRadius: 14,
-    backgroundColor: '#007EAF',
+    backgroundColor: '#FF6E31',
     alignItems: 'center',
     justifyContent: 'center',
   },

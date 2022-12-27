@@ -16,7 +16,7 @@ const Lab4 = () => {
       style={{
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#8CE585',
+        backgroundColor: '#243763',
         justifyContent: 'flex-start',
       }}>
       <Text
@@ -32,7 +32,7 @@ const Lab4 = () => {
         style={{
           flex: 1,
           alignItems: 'center',
-          backgroundColor: '#8CE585',
+          backgroundColor: '#243763',
           justifyContent: 'center',
         }}>
         <TouchableOpacity style={styles.button} onPress={setColorDay}>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: 351,
     height: 50,
-    backgroundColor: '#007EAF',
+    backgroundColor: '#FF6E31',
     alignItems: 'center',
     justifyContent: 'center',
     margin: 10,

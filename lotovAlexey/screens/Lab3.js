@@ -14,8 +14,8 @@ const Lab3 = () => {
   };
 
   return (
-    <View style={{backgroundColor: '#8CE585', height: '100%', width: '100%'}}>
-      <View style={{backgroundColor: '#8CE585', margin: 20}}>
+    <View style={{backgroundColor: '#243763', height: '100%', width: '100%'}}>
+      <View style={{backgroundColor: '#243763', margin: 20}}>
         <Text style={{...styles.text, fontSize: 20}}>
           Use Memo calculate factorial
         </Text>
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     width: 351,
     height: 41,
     borderRadius: 14,
-    backgroundColor: '#007EAF',
+    backgroundColor: '#FF6E31',
     alignItems: 'center',
     justifyContent: 'center',
   },
