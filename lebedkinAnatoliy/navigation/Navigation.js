@@ -6,7 +6,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {LabOne} from '../screens/LabOne';
 import {LabTwo} from '../screens/LabTwo';
 import {LabThree} from '../screens/LabThree';
-import {LabFour} from '../screens/LabFour';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const MainNavigation = () => {
@@ -51,15 +50,6 @@ const MainNavigation = () => {
           options={{
             tabBarIcon: () => {
               return <Icon name="clock-o" size={20} color="#000" />;
-            },
-          }}
-        />
-        <Tab.Screen
-          name="Lab4"
-          component={LabFour}
-          options={{
-            tabBarIcon: () => {
-              return <Icon name="plus" size={20} color="#000" />;
             },
           }}
         />

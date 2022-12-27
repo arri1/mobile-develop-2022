@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {View, StyleSheet, Text, Image} from 'react-native';
-import {useSelector} from 'react-redux';
 
 export const LabTwo = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [image, setImage] = useState();
-  const count = useSelector(state => state.counter.value);
   useEffect(() => {
     axios.get('https://reqres.in/api/users/1').then(response => {
       setName(

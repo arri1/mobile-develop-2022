@@ -9,19 +9,18 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import {useDispatch} from 'react-redux';
+import {setLogin, setPassword} from '../app/accountSlice';
 
 const RegisterScreen = ({navigation}) => {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
-  const [userAge, setUserAge] = useState('');
-  const [userAddress, setUserAddress] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [errortext, setErrortext] = useState('');
 
   const emailInputRef = createRef();
-  const ageInputRef = createRef();
-  const addressInputRef = createRef();
   const passwordInputRef = createRef();
+  const dispatch = useDispatch();
 
   const handleSubmitButton = () => {
     setErrortext('');
@@ -31,17 +30,13 @@ const RegisterScreen = ({navigation}) => {
     } else if (!userEmail) {
       alert('Please fill Email');
       return;
-    } else if (!userAge) {
-      alert('Please fill Age');
-      return;
-    } else if (!userAddress) {
-      alert('Please fill Address');
-      return;
     } else if (!userPassword) {
       alert('Please fill Password');
       return;
     } else {
-      navigation.navigate('TabScreen');
+      dispatch(setLogin(userName));
+      dispatch(setPassword(userPassword));
+      navigation.navigate('LoginScreen');
     }
   };
   return (
@@ -94,38 +89,6 @@ const RegisterScreen = ({navigation}) => {
               ref={passwordInputRef}
               returnKeyType="next"
               secureTextEntry={true}
-              onSubmitEditing={() =>
-                ageInputRef.current && ageInputRef.current.focus()
-              }
-              blurOnSubmit={false}
-            />
-          </View>
-          <View style={styles.SectionStyle}>
-            <TextInput
-              style={styles.inputStyle}
-              onChangeText={UserAge => setUserAge(UserAge)}
-              underlineColorAndroid="#f000"
-              placeholder="Enter Age"
-              placeholderTextColor="#8b9cb5"
-              keyboardType="numeric"
-              ref={ageInputRef}
-              returnKeyType="next"
-              onSubmitEditing={() =>
-                addressInputRef.current && addressInputRef.current.focus()
-              }
-              blurOnSubmit={false}
-            />
-          </View>
-          <View style={styles.SectionStyle}>
-            <TextInput
-              style={styles.inputStyle}
-              onChangeText={UserAddress => setUserAddress(UserAddress)}
-              underlineColorAndroid="#f000"
-              placeholder="Enter Address"
-              placeholderTextColor="#8b9cb5"
-              autoCapitalize="sentences"
-              ref={addressInputRef}
-              returnKeyType="next"
               onSubmitEditing={Keyboard.dismiss}
               blurOnSubmit={false}
             />

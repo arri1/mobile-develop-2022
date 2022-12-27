@@ -9,23 +9,28 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
+import {useSelector} from 'react-redux';
 
 const LoginScreen = ({navigation}) => {
-  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [errortext, setErrortext] = useState('');
 
   const passwordInputRef = createRef();
+  const accountName = useSelector(state => state.account.login);
+  const accountPassword = useSelector(state => state.account.password);
 
   const handleSubmitPress = () => {
     setErrortext('');
-    if (!userEmail) {
-      alert('Please fill Email');
+    if (!userName) {
+      alert('Please fill Login');
       return;
     }
     if (!userPassword) {
       alert('Please fill Password');
       return;
+    } else if (userName === accountName && userPassword === accountPassword) {
+      navigation.navigate('TabScreen');
     }
   };
 
@@ -43,11 +48,10 @@ const LoginScreen = ({navigation}) => {
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
-                onChangeText={UserEmail => setUserEmail(UserEmail)}
-                placeholder="Enter Email" //dummy@abc.com
+                onChangeText={UserName => setUserName(UserName)}
+                placeholder="Enter Email"
                 placeholderTextColor="#8b9cb5"
                 autoCapitalize="none"
-                keyboardType="email-address"
                 returnKeyType="next"
                 onSubmitEditing={() =>
                   passwordInputRef.current && passwordInputRef.current.focus()
@@ -60,7 +64,7 @@ const LoginScreen = ({navigation}) => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserPassword => setUserPassword(UserPassword)}
-                placeholder="Enter Password" //12345
+                placeholder="Enter Password"
                 placeholderTextColor="#8b9cb5"
                 keyboardType="default"
                 ref={passwordInputRef}

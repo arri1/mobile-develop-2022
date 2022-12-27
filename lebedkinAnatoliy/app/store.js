@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import {configureStore} from '@reduxjs/toolkit';
-import counterReducer from './counterSlice';
+import accountReducer from './accountSlice';
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    account: accountReducer,
   },
 });
