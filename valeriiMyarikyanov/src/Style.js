@@ -11,6 +11,9 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#f2f3f2'
   },
+  hyperLinkText: {
+    color: "#ff6347",
+  },
   imageBackground: {
     flex: 1,
     width: '100%',

@@ -19,7 +19,7 @@ const hashSyncFunc = text => {
 };
 
 export const Lab3Screen = () => {
-  const [text, onChangeText] = React.useState('Type text here');
+  const [text, onChangeText] = React.useState('');
   const [textToHash, prepareTextToHash] = React.useState('');
   const cachedHash = React.useMemo(
     () => hashSyncFunc(textToHash),
@@ -28,6 +28,7 @@ export const Lab3Screen = () => {
   return (
     <View style={Style.container}>
       <TextInput
+        placeholder="Type here"
         style={Style.textInput}
         onChangeText={onChangeText}
         value={text}
