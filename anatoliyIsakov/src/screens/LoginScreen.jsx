@@ -14,10 +14,10 @@ export const Login = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.ViewWithImageBackground}>
+    <View style={styles.viewWithImageBackground}>
       <View style={styles.inputView}>
         <TextInput
-          style={styles.TextInput}
+          style={styles.textInput}
           placeholder="Login"
           placeholderTextColor="#FFFFFF"
           onChangeText={email => setEmail(email)}
@@ -26,7 +26,7 @@ export const Login = () => {
 
       <View style={styles.inputView}>
         <TextInput
-          style={styles.TextInput}
+          style={styles.textInput}
           placeholder="Password"
           placeholderTextColor="#FFFFFF"
           secureTextEntry={true}
@@ -35,7 +35,7 @@ export const Login = () => {
       </View>
 
       <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
+        <Text style={styles.forgotButton}>Forgot Password?</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -54,11 +54,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   image: {
     marginBottom: 40,
   },
-
   inputView: {
     backgroundColor: '#009999',
     borderRadius: 30,
@@ -68,20 +66,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
-  TextInput: {
+  textInput: {
     height: 50,
     flex: 1,
     padding: 10,
     marginLeft: 20,
   },
-
-  forgot_button: {
+  forgotButton: {
     height: 30,
     marginBottom: 30,
     color: '#009999',
   },
-
   loginBtn: {
     elevation: 8,
     backgroundColor: '#009999',
@@ -92,7 +87,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 5,
   },
-
   loginText: {
     fontSize: 18,
     color: '#fff',
@@ -100,8 +94,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textTransform: 'uppercase',
   },
-
-  ViewWithImageBackground: {
+  viewWithImageBackground: {
     backgroundColor: '#5CCCCC',
     height: '100%',
     flex: 1,
