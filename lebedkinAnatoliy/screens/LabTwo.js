@@ -20,8 +20,10 @@ export const LabTwo = () => {
     <View style={styles.mainContainer}>
       <View style={styles.card}>
         <Image style={styles.image} source={{uri: image}} />
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.email}>{email}</Text>
+        <View style={styles.data}>
+          <Text style={styles.item}>{name}</Text>
+          <Text style={styles.item}>{email}</Text>
+        </View>
       </View>
     </View>
   );
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderColor: 'black',
     borderWidth: 1,
+    flexDirection: 'row',
   },
   image: {
     height: 130,
@@ -51,14 +54,11 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
   },
-  name: {
-    position: 'absolute',
-    top: 10,
-    left: 145,
+  data: {
+    flexDirection: 'column',
   },
-  email: {
-    position: 'absolute',
-    top: 30,
-    left: 145,
+  item: {
+    marginLeft: 15,
+    marginTop: 10,
   },
 });
