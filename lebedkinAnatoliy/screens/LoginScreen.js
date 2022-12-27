@@ -45,11 +45,11 @@ const LoginScreen = ({navigation}) => {
         }}>
         <View>
           <KeyboardAvoidingView enabled>
-            <View style={styles.SectionStyle}>
+            <View style={styles.sectionStyle}>
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserName => setUserName(UserName)}
-                placeholder="Enter Email"
+                placeholder="Enter Login"
                 placeholderTextColor="#8b9cb5"
                 autoCapitalize="none"
                 returnKeyType="next"
@@ -60,7 +60,7 @@ const LoginScreen = ({navigation}) => {
                 blurOnSubmit={false}
               />
             </View>
-            <View style={styles.SectionStyle}>
+            <View style={styles.sectionStyle}>
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserPassword => setUserPassword(UserPassword)}
@@ -101,10 +101,10 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#404040',
     alignContent: 'center',
   },
-  SectionStyle: {
+  sectionStyle: {
     flexDirection: 'row',
     height: 40,
     marginTop: 20,
@@ -113,10 +113,10 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#8E8DBD',
     borderWidth: 0,
+    borderColor: '#000000',
     color: '#FFFFFF',
-    borderColor: '#7DE24E',
     height: 40,
     alignItems: 'center',
     borderRadius: 30,
@@ -131,8 +131,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   inputStyle: {
+    backgroundColor: 'white',
     flex: 1,
-    color: 'white',
+    color: 'black',
     paddingLeft: 15,
     paddingRight: 15,
     borderWidth: 1,
