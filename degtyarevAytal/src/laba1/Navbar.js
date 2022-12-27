@@ -14,12 +14,12 @@ const styles = StyleSheet.create({
     height: 60,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    backgroundColor: '#7653A6',
+    backgroundColor: '#7653A',
     paddingBottom: 20,
   },
 
   text: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
   },
 });

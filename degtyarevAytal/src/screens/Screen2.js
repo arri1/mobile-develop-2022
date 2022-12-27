@@ -9,7 +9,7 @@ export const Screen2 = () => {
 
   return (
     <View style={style.container}>
-      <Text style={style.text}>Hello</Text>
+      <Text style={style.text}>HELLO{')'}</Text>
     </View>
   );
 };
