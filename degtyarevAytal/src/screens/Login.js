@@ -49,7 +49,7 @@ export const Login = () => {
 
         <TouchableOpacity
           style={styles.loginBtn}
-          onPress={() => navigation.navigate('Home')}>
+          onPress={() => navigation.navigate('Tab')}>
           <Text style={styles.loginText}>LOGIN</Text>
         </TouchableOpacity>
       </ImageBackground>
