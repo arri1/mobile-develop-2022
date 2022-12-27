@@ -26,7 +26,7 @@ export const LabThree = () => {
     const [imageUri, setImageUri] = useState(timePeriods[0]);
     return (
         <View style = {styles.mainContainer}>
-            <View style = {styles.button}>
+            <View style = {styles.buttonContainer}>
                 <TouchableOpacity
                     style={styles.button}
                     onPress = {() => {
@@ -65,10 +65,14 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
-    button: {
+    buttonContainer: {
         position: 'absolute',
         top: 420,
         left: 60,
+        width: 100,
+        height: 20,
+    },
+    button: {
         width: 100,
         height: 20,
         backgroundColor: 'red',
