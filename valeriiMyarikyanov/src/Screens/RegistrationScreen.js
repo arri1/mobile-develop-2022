@@ -2,15 +2,18 @@ import React from 'react';
 import {Text, TextInput, View, Pressable} from 'react-native';
 import Style from '../Style';
 
-export const LoginScreen = ({navigation}) => {
+export const RegistrationScreen = ({navigation}) => {
   const [name, onChangeName] = React.useState('');
+  const [email, onChangeEmail] = React.useState('');
   const [password, onChangePassword] = React.useState('');
+  const [confirmPassword, onChangeConfirmPassword] = React.useState('');
 
-  const onPressLogin = () => {
+  const onPressSignup = () => {
+    // Too lazy to implement correct validation
     if (name != '') {
       if (password != '') {
         console.log(name, ' ', password);
-        return navigation.navigate('Main');
+        return navigation.goBack();
       }
     }
     return alert('Please, enter your name and password correctly!');
@@ -18,12 +21,17 @@ export const LoginScreen = ({navigation}) => {
 
   return (
     <View style={Style.container}>
-      <Text>Hello! Please enter your nickname and password</Text>
       <TextInput
         placeholder="Your name"
         style={Style.textInput}
         onChangeText={onChangeName}
         value={name}
+      />
+      <TextInput
+        placeholder="Your email"
+        style={Style.textInput}
+        onChangeText={onChangeEmail}
+        value={email}
       />
       <TextInput
         placeholder="Your password"
@@ -32,19 +40,18 @@ export const LoginScreen = ({navigation}) => {
         value={password}
         secureTextEntry={true}
       />
+      <TextInput
+        placeholder="Confirm your password"
+        style={Style.textInput}
+        onChangeText={onChangeConfirmPassword}
+        value={confirmPassword}
+        secureTextEntry={true}
+      />
       <Pressable
         style={({pressed}) => [pressed ? Style.buttonActive : Style.button]}
-        onPress={onPressLogin}>
-        <Text>Log in</Text>
+        onPress={onPressSignup}>
+        <Text>Sign up</Text>
       </Pressable>
-      <Text>
-        Don't have an account?{' '}
-        <Text
-          onPress={() => navigation.navigate('Sign up')}
-          style={Style.hyperLinkText}>
-          Sign up
-        </Text>
-      </Text>
     </View>
   );
 };
