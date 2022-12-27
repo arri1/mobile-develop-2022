@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 import {Text, View, Button, StyleSheet} from 'react-native';
 import {increaseBurgerAction, decreaseBurgerAction} from '../redux/index';
+import {useDispatch, useSelector} from 'react-redux';
+import {increment, decrement} from '../redux/CounterSlice';
 
 export const Laba4 = () => {
+  const count = useSelector(state => state.counter.value);
+  const dispatch = useDispatch();
+
   return (
     <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
       <View style={styles.textbox}>
@@ -10,11 +15,11 @@ export const Laba4 = () => {
       </View>
       <View style={styles.buttons}>
         <View>
-          <Text>Number of burger = {}</Text>
+          <Text>Number of burger = {count}</Text>
           <Button
             title="Increase Burger"
             onPress={() => {
-              increaseBurgerAction;
+              dispatch(increment());
             }}
             color="#7653A6"
           />
@@ -23,7 +28,7 @@ export const Laba4 = () => {
           <Button
             title="Decrease Burger"
             onPress={() => {
-              decreaseBurgerAction;
+              dispatch(decrement());
             }}
             color="#7653A6"
           />

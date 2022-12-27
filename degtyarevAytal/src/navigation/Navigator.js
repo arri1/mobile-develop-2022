@@ -11,6 +11,7 @@ import {Laba3} from '../screens/Laba3';
 import {Laba4} from '../screens/Laba4';
 import {Laba5} from '../screens/Laba5';
 
+
 const Stack = createStackNavigator();
 
 export const Navigator = () => {
