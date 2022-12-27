@@ -36,13 +36,13 @@ const Navigate = () => {
                   source={require('../assets/icons/home.png')}
                   resizeMode="contain"
                   style={{
-                    tintColor: focused ? '#00C8A5' : '#34568B',
+                    tintColor: focused ? '#FF6E31' : '#243763',
                     ...styles.TabBarImage,
                   }}
                 />
                 <Text
                   style={{
-                    color: focused ? '#00C8A5' : '#34568B',
+                    color: focused ? '#FF6E31' : '#243763',
                     fontSize: 12,
                   }}>
                   HOME
@@ -58,10 +58,10 @@ const Navigate = () => {
             tabBarIcon: ({focused}) => (
               <View style={styles.ViewTabBarIcon}>
                 <Image
-                  source={require('../assets/icons/task.png')}
+                  source={require('../assets/icons/task1.png')}
                   resizeMode="contain"
                   style={{
-                    tintColor: focused ? '#00C8A5' : '#34568B',
+                    tintColor: focused ? '#FF6E31' : '#243763',
                     ...styles.TabBarImage,
                     height: 23,
                     marginBottom: 2,
@@ -69,7 +69,7 @@ const Navigate = () => {
                 />
                 <Text
                   style={{
-                    color: focused ? '#00C8A5' : '#34568B',
+                    color: focused ? '#FF6E31' : '#243763',
                     fontSize: 12,
                   }}>
                   Lab1
@@ -85,10 +85,10 @@ const Navigate = () => {
             tabBarIcon: ({focused}) => (
               <View style={styles.ViewTabBarIcon}>
                 <Image
-                  source={require('../assets/icons/task.png')}
+                  source={require('../assets/icons/task2.png')}
                   resizeMode="contain"
                   style={{
-                    tintColor: focused ? '#00C8A5' : '#34568B',
+                    tintColor: focused ? '#FF6E31' : '#243763',
                     ...styles.TabBarImage,
                     height: 23,
                     marginBottom: 2,
@@ -96,7 +96,7 @@ const Navigate = () => {
                 />
                 <Text
                   style={{
-                    color: focused ? '#00C8A5' : '#34568B',
+                    color: focused ? '#FF6E31' : '#243763',
                     fontSize: 12,
                   }}>
                   Lab2
@@ -112,10 +112,10 @@ const Navigate = () => {
             tabBarIcon: ({focused}) => (
               <View style={styles.ViewTabBarIcon}>
                 <Image
-                  source={require('../assets/icons/task.png')}
+                  source={require('../assets/icons/task3.png')}
                   resizeMode="contain"
                   style={{
-                    tintColor: focused ? '#00C8A5' : '#34568B',
+                    tintColor: focused ? '#FF6E31' : '#243763',
                     ...styles.TabBarImage,
                     height: 23,
                     marginBottom: 2,
@@ -123,7 +123,7 @@ const Navigate = () => {
                 />
                 <Text
                   style={{
-                    color: focused ? '#00C8A5' : '#34568B',
+                    color: focused ? '#FF6E31' : '#243763',
                     fontSize: 12,
                   }}>
                   Lab3
@@ -140,10 +140,10 @@ const Navigate = () => {
             tabBarIcon: ({focused}) => (
               <View style={styles.ViewTabBarIcon}>
                 <Image
-                  source={require('../assets/icons/task.png')}
+                  source={require('../assets/icons/task4.png')}
                   resizeMode="contain"
                   style={{
-                    tintColor: focused ? '#00C8A5' : '#34568B',
+                    tintColor: focused ? '#FF6E31' : '#243763',
                     ...styles.TabBarImage,
                     height: 23,
                     marginBottom: 2,
@@ -151,7 +151,7 @@ const Navigate = () => {
                 />
                 <Text
                   style={{
-                    color: focused ? '#00C8A5' : '#34568B',
+                    color: focused ? '#FF6E31' : '#243763',
                     fontSize: 12,
                   }}>
                   Lab4

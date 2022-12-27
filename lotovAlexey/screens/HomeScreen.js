@@ -9,7 +9,7 @@ const HomeScreen = ({navigation}) => {
       style={{
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#8CE585',
+        backgroundColor: '#243763',
         justifyContent: 'center',
       }}>
       <Text
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 41,
     borderRadius: 14,
-    backgroundColor: '#007EAF',
+    backgroundColor: '#FF6E31',
     alignItems: 'center',
     justifyContent: 'center',
   },
