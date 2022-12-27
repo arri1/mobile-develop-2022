@@ -1,48 +1,38 @@
-import React, {useRef} from 'react';
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, SafeAreaView } from 'react-native';
-import {useSelector} from 'react-redux';
-
+import { StyleSheet, Text, View, Button } from 'react-native';
 const Lab1Screen = ({navigation}) => {
   const [fontSize, setFontSize] = React.useState(24);
-  const {lab1Color} = useSelector(state => state.colorReducer);
-
   return (
-    <SafeAreaView style={{...styles.container, backgroundColor: lab1Color}}>
-      <View style={styles.buttonStyle}>
-        <Text style={[styles.testText, {fontSize: fontSize}]}>BLAA</Text>
-        <View style={styles.view}>
-          <Button
-            style={styles.button}
-            title="+"
-            onPress={() => { setFontSize(fontSize + 3)}}
-          />
-          <Button
-            style={styles.button}
-            title="-"
-            onPress={() => { setFontSize(fontSize - 3)}}
-          />
-        </View>
-        <StatusBar style="auto" />
-
+    <View style={styles.container}>
+      <Text style={[styles.testText, {fontSize: fontSize}]}>BLAA</Text>
+      <View style={styles.view}>
+        <Button
+          style={styles.button}
+          title="+"
+          onPress={() => { setFontSize(fontSize + 3)}}
+        />
+        <Button
+          style={styles.button}
+          title="-"
+          onPress={() => { setFontSize(fontSize - 3)}}
+        />
       </View>
-    </SafeAreaView>
+      <StatusBar style="auto" />
+
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-    buttonStyle: {
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     container: {
       flex: 1,
-      backgroundColor: 'white',
+      backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
     },
     testText: {
-      color: 'orange',
+      color: 'red',
       
     },
     view:{
@@ -54,5 +44,5 @@ const styles = StyleSheet.create({
     }
   
   });
-
-export default Lab1Screen;
+  
+  export default Lab1Screen;
