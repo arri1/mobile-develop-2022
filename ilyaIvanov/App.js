@@ -1,23 +1,14 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
-import BottomTab from './components/bottom-tab';
+import {TabNavigation} from './src/navigation/TabNavigation';
+import {Provider} from 'react-redux';
+import store from './src/store';
 
-function App() {
-  return <SafeAreaProvider style={styles.container}>
-    <NavigationContainer>
-      <BottomTab>
-      </BottomTab>
-    </NavigationContainer>
-  </SafeAreaProvider>
-}
-
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    backgroundColor:'#fff'
-  }
-})
+const App = () => {
+  return (
+    <Provider store={store}>
+      <TabNavigation />
+    </Provider>
+  );
+};
 
 export default App;
