@@ -8,6 +8,8 @@ import NotificationIcon from '../assets/icons/messenger.png';
 import PostIcon from '../assets/icons/play.png';
 import ProfileIcon from '../assets/icons/user.png';
 
+import { LabOne, lab1 } from '../src/screens/lab1';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -51,7 +53,7 @@ const BottomTab =() => {
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={LabOne}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ focused }) => (
